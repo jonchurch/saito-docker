@@ -1,0 +1,38 @@
+{
+  "name": "saito",
+  "version": "2.0.0",
+  "description": "big-data application blockchain",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "proof",
+    "of",
+    "transaction",
+    "proof",
+    "of",
+    "relay",
+    "proof",
+    "of",
+    "routing",
+    "big-data",
+    "application",
+    "blockchain",
+    "dapps"
+  ],
+  "author": "David Lancashire",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "dependencies": {
+    "base-58": "0.0.1",
+    "browserify": "^16.2.0",
+    "merkle-tree-gen": "^1.1.0",
+    "node-cryptojs-aes": "^0.4.0",
+    "secp256k1": "^3.5.0",
+    "sha256": "^0.2.0",
+    "shashmap": "^1.0.3",
+    "socket.io": "^2.1.0",
+    "socket.io-client": "^2.1.0",
+    "sqlite3": "^4.0.0"
+  }
+}
