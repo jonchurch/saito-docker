@@ -1,6 +1,7 @@
 package-lock.json
 node_modules
 node_modules/*
+lib/saito/1
 lib/1
 lib/data/database.sq3
 lib/data/database.bk
