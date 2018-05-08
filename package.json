@@ -29,6 +29,7 @@
     "ethereumjs-util": "^5.2.0",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
+    "keythereum": "^1.0.3",
     "markdown": "^0.5.0",
     "merkle-tree-gen": "^1.1.0",
     "node-cryptojs-aes": "^0.4.0",

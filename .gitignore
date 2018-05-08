@@ -10,6 +10,7 @@ lib/test.js
 website/
 lib/debug
 lib/debug.js
+lib/options.server
 lib/options.good
 lib/options.debug
 lib/options.bk
