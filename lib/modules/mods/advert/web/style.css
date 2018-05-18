@@ -63,5 +63,15 @@
  padding: 2px;
  min-width: 400px;
 }
+.auth {
+ font-size:1.2em;
+ padding: 2px;
+ min-width: 400px;
+}
+.pkey {
+ font-size:1.2em;
+ padding: 2px;
+ min-width: 400px;
+}
 
 
