@@ -1107,7 +1107,7 @@ console.log(" ... unwind old chain");
     // the block has been saved to disk so we just open
     // block by hash.
     //
-    storage_self.app.blockchain.returnBlockByHash(old_block_hashes[current_unwind_index], function(blk) {
+    storage_self.openBlockByHash(old_block_hashes[current_unwind_index], function(storage_self, blk) {
 
       if (blk == null) {
 	console.log("We cannot find a block on disk that should exist in unwindChain");
@@ -1179,6 +1179,7 @@ console.log(" ... validate block inputs and other stuff");
 
   var storage_self = this;
   let spent_inputs = [];
+
 
   /////////////////////////////////////////
   // check against double-input spending //
@@ -1295,9 +1296,6 @@ console.log(" ... validate block inputs and other stuff");
     if (storage_self.app.blockchain.index.length > 0) {
 console.log("\n\n\nWE HAVE FOUND AN ISSUE SINCE WE DO NOT HAVE THE PREVIOUS BLOCK\n\n");
       return 0;
-    } else {
-console.log("\n\n\nWE ARE MISSING PREV BLOCK, BUT THIS IS OUR FIRST BLOCK SO IT IS OK\n\n\n");
-      return 1;
     }
   } else {
 
@@ -1321,17 +1319,17 @@ console.log("validating golden ticket for : " + newblock.returnHash() + " given 
     //}
 
     //
-    // burn fee and fee step
     //
-    var newbf = newblock.calculateBurnFee(prevblk.returnBurnFee(), prevblk.returnFeeStep());
-    if (newbf[0] != newblock.block.burn_fee) {
-      console.log("Block invalid: burn fee miscalculated: "+newbf[0]+" versus "+newblock.block.burn_fee);
-      return;
-    }
-    if (newbf[1] != newblock.block.fee_step) {
-      console.log("Block invalid: fee step miscalculated: "+newbf[1]+" versus "+newblock.block.fee_step);
-      return 0;
-    }
+    //
+    //var newbf = block_self.calculateBurnFee(prevblk.returnBurnFee(), prevblk.returnFeeStep());
+    //if (newbf[0] != block_self.block.burn_fee) {
+    //  console.log("Block invalid: burn fee miscalculated: "+newbf[0]+" versus "+block_self.block.burn_fee);
+    //  return;
+    //}
+    //if (newbf[1] != block_self.block.fee_step) {
+    //  console.log("Block invalid: fee step miscalculated: "+newbf[1]+" versus "+block_self.block.fee_step);
+    //  return 0;
+    //}
 
   }
 
@@ -1507,16 +1505,75 @@ Storage.prototype.windChain = function windChain(newblock, pos, shared_ancestor_
 
   var storage_self = this;
 
-  let this_block_hash = new_block_hashes[current_wind_index];
-
   //
-  // we have not saved the latest block to disk yet, so
-  // there's no need to go through the delay of opening
-  // files from disk and needing a callback.
+  // if prevblk is null, this is probably our first entry into the attempt to wind the chain, so we 
+  // fetch it from disk (if it exists), and then we can validate the burn fee, monetary policy, etc.
+  // without the need to constantly fetch it from disk. In fact, we will try to do this through the 
+  // BLOCKCHAIN class function now to fetch it from our live memory if at all possible.
   //
-  if (this_block_hash == newblock.returnHash()) {
+  storage_self.app.blockchain.returnBlockByHash(newblock.block.prevhash, function(prevblk) {
 
-    storage_self.app.blockchain.returnBlockByHash(newblock.block.prevhash, function(prevblk) {
+    //
+    // this is only acceptable if we have no previous blocks in 
+    // our index at all, in which case it is the first block.
+    //
+    if (prevblk == null && storage_self.app.blockchain.index.length > 1) {
+
+      if (current_wind_index == 0) {
+
+        // this is the first block we have tried to add
+        // and so we can just roll out the older chain
+        // again as it is known good.
+        //
+        // note that old and new hashes are swapped
+        // and the old chain is set as null because
+        // we won't move back to it. we also set the
+        // resetting_flag to 1 so we know to fork
+        // into addBlockToBlockchainFailure.
+        //
+        if (old_block_hashes.length > 0) {
+          storage_self.windChain(newblock, pos, shared_ancestor_index_pos, old_block_idxs, old_block_hashes, old_block_ids, null, null, null, i_am_the_longest_chain, forceAdd, 0, 1);
+        } else {
+          storage_self.app.blockchain.addBlockToBlockchainFailure(newblock, pos, i_am_the_longest_chain, forceAdd);
+        }
+      } else {
+
+        //
+        // we need to unwind some of our previously
+        // added blocks from the new chain. so we
+        // swap our hashes to wind/unwind.
+        //
+        var chain_to_unwind_hashes = new_block_hashes.splice(current_wind_index);
+        var chain_to_unwind_idxs   = new_block_idxs.splice(current_wind_index);
+        var chain_to_unwind_ids    = new_block_ids.splice(current_wind_index);
+
+        //
+        // unwind NEW and wind OLD
+        //
+        // note that we are setting the resetting_flag to 1
+        //
+        storage_self.unwindChain(newblock, pos, shared_ancestor_index_pos, old_block_idxs, old_block_hashes, old_block_ids, chain_to_unwind_idxs, chain_to_unwind_hashes, chain_to_unwind_ids, i_am_the_longest_chain, forceAdd, chain_to_unwind_hashes.length, 1);
+
+      }
+
+      return;
+    }
+
+
+    //
+    // otherwise we now have prevblk referecning the previous block
+    // OR null if it is our first block
+    //
+
+console.log("HERE: " + current_wind_index + " -- " + JSON.stringify(new_block_hashes));
+    let this_block_hash = new_block_hashes[current_wind_index];
+
+    //
+    // we have not saved the latest block to disk yet, so
+    // there's no need to go through the delay of opening
+    // files from disk and needing a callback.
+    //
+    if (this_block_hash == newblock.returnHash()) {
 
       if (storage_self.validateBlockInputs(newblock, prevblk) == 1) {
 
@@ -1553,7 +1610,7 @@ Storage.prototype.windChain = function windChain(newblock, pos, shared_ancestor_
           }
         } else {
 
-    	  //
+  	  //
           // we need to unwind some of our previously
           // added blocks from the new chain. so we
           // swap our hashes to wind/unwind.
@@ -1571,22 +1628,19 @@ Storage.prototype.windChain = function windChain(newblock, pos, shared_ancestor_
 
         }
       }
-    });
 
+    //
+    // this is not the latest block, so we need to
+    // fetch it from disk, and then do exactly the
+    // same thing as above, essentially.
+    //
+    } else {
 
-  //
-  // this is not the latest block, so we need to
-  // fetch it from disk, and then do exactly the
-  // same thing as above, essentially.
-  //
-  } else {
-
-    storage_self.app.blockchain.returnBlockByHash(new_block_hashes[current_wind_index], function(blk) {
-      storage_self.app.blockchain.returnBlockByHash(blk.block.prevhash, function(prevblk) {
+      storage_self.openBlockByHash(new_block_hashes[current_wind_index], function(storage_self, blk) {
 
         if (blk == null) {
-          console.log("Cannot open block that should exist in windChain");
-          process.exit();
+  	  console.log("Cannot open block that should exist in windChain");
+	  process.exit();
         }
 
         if (storage_self.validateBlockInputs(blk, prevblk) == 1) {
@@ -1616,15 +1670,18 @@ Storage.prototype.windChain = function windChain(newblock, pos, shared_ancestor_
           if (current_wind_index == 0) {
             storage_self.windChain(newblock, pos, shared_ancestor_index_pos, old_block_idxs, old_block_hashes, old_block_ids, null, null, null, i_am_the_longest_chain, forceAdd, 0, 1);
           } else {
+
             var chain_to_unwind_hashes = new_block_hashes.splice(current_wind_index);
             var chain_to_unwind_idxs   = new_block_idxs.splice(current_wind_index);
             var chain_to_unwind_ids    = new_block_ids.splice(current_wind_index);
+
             storage_self.unwindChain(newblock, pos, shared_ancestor_index_pos, old_block_idxs, old_block_hashes, old_block_ids, chain_to_unwind_idxs, chain_to_unwind_hashes, chain_to_unwind_ids, i_am_the_longest_chain, forceAdd, chain_to_unwind_hashes.length, 1);
           }
         }
-      }); // prev block
-    });   // this block
-  } // else
+      });
+    }
+
+  }); // blockchain.returnBlockByHash
 
 }
 
