@@ -1,6 +1,7 @@
 package-lock.json
 node_modules
 node_modules/*
+lib/data/database.sq3-journal
 lib/saito/web/browser.j*
 lib/saito/1
 lib/1
@@ -17,6 +18,7 @@ lib/options.good
 lib/options.debug
 lib/options.bk
 lib/options
-modules/mods/advert/web/cache/*.png
 lib/saito/*.swp
+lib/modules/mods/advert/web/cache/*.png
+lib/modules/mods/registry/web/addresses.txt
 
