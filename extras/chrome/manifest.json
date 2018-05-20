@@ -1,0 +1,40 @@
+ {
+  "name": "Saito for Chrome",
+  "version": "1.0",
+  "description": "Inserts known-good javascript file into Saito pages",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+ "content_scripts": [ 
+   {
+     "matches": ["http://*/*"],
+     "js": ["saito.js"]
+   }
+ ],
+  "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/saito16.png",
+        "32": "images/saito32.png",
+        "48": "images/saito48.png",
+        "128": "images/saito128.png"
+      }
+  },
+  "icons": {
+    "16": "images/saito16.png",
+    "32": "images/saito32.png",
+    "48": "images/saito48.png",
+    "128": "images/saito128.png"
+  },
+  "manifest_version": 2
+}
+
