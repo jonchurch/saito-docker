@@ -4,22 +4,11 @@
   "description": "Inserts known-good javascript file into Saito pages",
   "permissions": [
     "storage",
-    "activeTab",
-    "webRequest",
-    "webRequestBlocking",
-    "<all_urls>",
-    "http://*/*",
-    "https://*/*"
+    "activeTab"
   ],
   "background": {
     "scripts": ["background.js"]
   },
- "content_scripts": [ 
-   {
-     "matches": ["http://*/*"],
-     "js": ["saito.js"]
-   }
- ],
   "browser_action": {
       "default_popup": "popup.html",
       "default_icon": {

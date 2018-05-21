@@ -23,5 +23,8 @@ test code for Saito-mediated payment channels for Ethereum.
 ////////////
 basic chrome extension that injects Saito code into browser, replacing remote version
 
+type:
+
+  "crx pack chrome" from this directory to produce the bundled extension
 
 

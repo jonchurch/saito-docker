@@ -5,7 +5,44 @@ var saito = require('./saito');
 var app            = {};
     app.BROWSER    = 1;
     app.SPVMODE    = 1;
+    app.CHROME     = 0;  // chrome extension
 
+
+
+//
+// Chrome local storage is asychronous, so we have to 
+// load the file first and only THEN initialize our
+// javascript.
+//
+// Non-Chrome extensions will jump right to initializing
+// the application.
+//
+try {
+  if (window.chrome && chrome.runtime && chrome.runtime.id) { app.CHROME = 1; }
+} catch (err) {}
+
+
+if (app.CHROME == 1) {
+  chrome.storage.local.get(["options"], function(items){
+    if (items != null) { 
+      if (items.options != null) { app.options = JSON.parse(items.options); }
+      else {
+        app.options = {};
+      }
+    }
+    initSaito();
+  });
+} else {
+  initSaito();
+}
+
+
+
+
+
+
+
+function initSaito() {
 
 ////////////////////
 // Load Variables //
@@ -72,9 +109,18 @@ Welcome to Saito \n\
 \n\
 address: ' + app.wallet.returnPublicKey() + '\n\
 balance: ' + app.wallet.returnBalance() + '\n\
-\n\n\
-Want a job that matters? Get in touch: info@saito.tech \n\
+\n\
+Above is the address and balance of this computer on the Saito network. Once Saito \n\
+is running it will generate tokens automatically over time. You can increase your \n\
+likelihood of this by processing more transactions and creating services that attract\n\
+clients. The more transactions you process the greater the chance that you will be \n\
+rewarded for the work. \n\
+\n\
+Questions or comments? Please contact us anytime at: david@saito \n\
 \n\n');
+
+} // init saito
+
 
 
 /////////////////////
@@ -2512,8 +2558,6 @@ Email.prototype.attachEmailEvents = function attachEmailEvents() {
 
 
 Email.prototype.initializeHTML = function initializeHTML(app) {
-
-alert("INIT EMAIL");
 
     var email_self = this;
 
@@ -7739,7 +7783,7 @@ Registry.prototype.installModule = function installModule() {
   if (registry_self.app.BROWSER == 1 || registry_self.app.SPVMODE == 1) { return; }
 
   var sqlite3 = require('sqlite3').verbose();
-  this.db = new sqlite3.Database('./data/registry.sq3');
+  registry_self.db = new sqlite3.Database('./data/registry.sq3');
 
   sql = "\
         CREATE TABLE IF NOT EXISTS mod_registry_addresses (\
@@ -7756,7 +7800,8 @@ Registry.prototype.installModule = function installModule() {
                 PRIMARY KEY(id ASC) \
         )";
 
-  this.db.run(sql, {}, function() {
+
+  registry_self.db.run(sql, {}, function() {
 
     //
     // if we are not the main server but we are running
@@ -7853,11 +7898,13 @@ Registry.prototype.installModule = function installModule() {
 ////////////////
 Registry.prototype.initialize = function initialize() {
 
-  if (this.app.BROWSER == 1 || this.app.SPVMODE == 1) { return; }
+  if (this.app.BROWSER == 1) { return; }
+
+  var registry_self = this;
 
   if (this.db == null) {
     var sqlite3 = require('sqlite3').verbose();
-    this.db = new sqlite3.Database('./data/registry.sq3');
+    registry_self.db = new sqlite3.Database('./data/registry.sq3');
   }
 
 }
@@ -8170,18 +8217,21 @@ Registry.prototype.onChainReorganization  = function onChainReorganization(block
 
   var registry_self = this;
 
+  //
+  // browsers don't have a database tracking this stuff
+  //
+  if (registry_self.app.BROWSER == 1) { return; }
+
   if (lc == 0) {
     var sql    = "UPDATE mod_registry_addresses SET longest_chain = 0 WHERE block_id = $block_id AND block_hash = $block_hash";
     var params = { $block_id : block_id , $block_hash : block_hash }
-    registry_self.db.run(sql, params, function(err, row) {
-    });
+    registry_self.db.run(sql, params, function(err, row) {});
   }
 
   if (lc == 1) {
     var sql    = "UPDATE mod_registry_addresses SET longest_chain = 1 WHERE block_id = $block_id AND block_hash = $block_hash";
     var params = { $block_id : block_id , $block_hash : block_hash }
-    registry_self.db.run(sql, params, function(err, row) {
-    });
+    registry_self.db.run(sql, params, function(err, row) {});
   }
 
 }
@@ -17599,6 +17649,22 @@ Storage.prototype.loadOptions = function loadOptions() {
 
     let data = null;
 
+
+    ///////////////////////////////
+    // fetch from Chrome Storage //
+    ///////////////////////////////
+    //
+    // we should have already fetched
+    // our data from the Chrome backend
+    // storage. (start.js)
+    //
+    if (this.app.CHROME == 1) {
+      if (this.app.options == null) { this.app.options = {}; }
+      return;
+    }
+
+
+
     ////////////////////////////
     // read from localStorage //
     ////////////////////////////
@@ -18053,6 +18119,11 @@ Storage.prototype.saveOptions = function saveOptions() {
   var storage_self = this;
 
   if (storage_self.app.options == null) { storage_self.app.options = {}; }
+
+  if (storage_self.app.CHROME == 1) {
+    chrome.storage.local.set({'options': JSON.stringify(storage_self.app.options)});
+    return;
+  }
 
   if (this.app.BROWSER == 0) {
     fs.writeFileSync("options", JSON.stringify(this.app.options), function(err) {

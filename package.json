@@ -27,6 +27,7 @@
     "base-58": "0.0.1",
     "big.js": "^5.0.3",
     "browserify": "^16.2.0",
+    "crx": "^3.2.1",
     "ethereumjs-util": "^5.2.0",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
