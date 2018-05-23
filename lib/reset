@@ -25,7 +25,7 @@ for d in modules/mods/* ; do
  fi
 done
 
-rm -rf modules/mod/appstore/saitolib
+rm -rf modules/mods/appstore/saitolib
 
 #cd saito/web
 #gzip -k browser.js
