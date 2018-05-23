@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Saito App Store:</title>
+  <title>Saito AppStore:</title>
 
   <script type="text/javascript" src="/jquery/jquery-3.2.1.min.js"></script>
   <link rel="stylesheet" href="/jquery/jquery-ui.min.css" type="text/css" media="screen" />
@@ -20,8 +20,7 @@
   <link rel="stylesheet" href="/fancybox/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
   <script type="text/javascript" src="/fancybox/jquery.fancybox-thumbs.js"></script>
 
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="/advert/style.css" />
+  <link rel="stylesheet" type="text/css" href="/appstore/style.css" />
 
 </head>
 <body>
@@ -49,20 +48,20 @@
 
     This provides a decentralized way to distribute and evaluate the trustworthiness of software applications.
 
+    <p></p>
+
+    <form method="POST" action="generateExtension">
+      <input type="submit" value="Generate Plugin" />
+    </form>
+
     </div>
 
   </div>
 
 
   <script src="/socket.io/socket.io.js"></script>
-  <script type="text/javascript">
-
-    $.getScript( "/browser.js?id=8234243", function( data, textStatus, jqxhr ) {
-      $('.loader').hide();
-      $('.main').show();
-    });
-
-  </script>
+  <script src="browser.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
