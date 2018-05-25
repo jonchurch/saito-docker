@@ -22,6 +22,8 @@ lib/saito/*.swp
 lib/modules/mods/advert/web/cache/*.png
 lib/modules/mods/registry/web/addresses.txt
 lib/modules/mods/appstore/saitolib/*
+lib/modules/mods/appstore/web/cache/*
 extras/chrome/key.pem
+extras/chrome/modules/mods/*
 
 

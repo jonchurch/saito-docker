@@ -91,7 +91,6 @@ Email.prototype.displayEmailForm = function displayEmailForm(app) {
   element_to_edit_html += '<input type="hidden" name="email_attachments" id="email_attachments">';
   element_to_edit_html += '<div id="file-wrap">';
   element_to_edit_html += '<div id="file-upload-shim" class="addfile">Add file</div></div>';
-  //element_to_edit_html += '<br /></hr /><br /><input type="file" name="email_attachment" id="email_attachment">';
   element_to_edit.html(element_to_edit_html);
   $('#email_attachments').val("unset");
 
@@ -131,7 +130,6 @@ Email.prototype.displayEmailForm = function displayEmailForm(app) {
         files[filecount] = file_details;
         $('#email_attachments').val(JSON.stringify(files));
         filecount += 1;
-        //resolve($('#email_attachment_content').val(code));
         email_self.showEmailAlert("file copied into message....");
       };
       reader.readAsDataURL(upload);

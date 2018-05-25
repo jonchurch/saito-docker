@@ -83,6 +83,3 @@
     var new_time = new Date().getTime();
     $('#tmp_current_time').html(formatDate(new_time));
 
-  $('.loader').hide();
-  $('.main').show();
-
