@@ -7,10 +7,12 @@
 # to generate the Chrome Extension
 #
 rm -rf modules/mods/appstore/saitolib
+rm -rf modules/mods/appstore/web/cache/*
 mkdir modules/mods/appstore/saitolib
 mkdir -p modules/mods/appstore/saitolib/modules/mods
 mkdir -p modules/mods/appstore/saitolib/saito
 mkdir -p modules/mods/appstore/saitolib/data
+touch modules/mods/appstore/web/cache/README.txt
 touch modules/mods/appstore/saitolib/README.txt
 touch modules/mods/appstore/saitolib/data/README.txt
 
