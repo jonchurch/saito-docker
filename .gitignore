@@ -2,6 +2,7 @@ package-lock.json
 node_modules
 node_modules/*
 lib/data/database.sq3-journal
+lib/data/registry.sq3
 lib/saito/web/browser.j*
 lib/saito/1
 lib/1
