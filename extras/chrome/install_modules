@@ -1,48 +1,24 @@
 
-
-#
-# move into correct dir
-#
 cd $1
 
-for d in modules/mods/* ; do
-
+for d in modules/mods/*
+do
   m=${d:13}
-
-#
-# create module dir
-#
-#echo $m
-#
-#mkdir -p modules/mods
-#cp -rf ../../lib/modules/mods/$m modules/mods/$m
-
-
-#
-# bundled libraries
-#
-sed -i '' -e 's/jquery\/jquery-3.2.1.min.js/lib\/jquery\/jquery-3.2.1.min.js/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/jquery\/jquery-ui.min.css/lib\/jquery\/jquery-ui.min.css/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/jquery\/jquery-ui.min.js/lib\/jquery\/jquery-ui.min.js/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/fancybox\/jquery.fancybox.css/lib\/fancybox\/jquery.fancybox.css/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/fancybox\/jquery.fancybox.pack.js/lib\/fancybox\/jquery.fancybox.pack.js/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/fancybox\/jquery.fancybox-buttons.css/lib\/fancybox\/jquery.fancybox-buttons.css/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/fancybox\/jquery.fancybox-buttons.js/lib\/fancybox\/jquery.fancybox-buttons.js/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/fancybox\/jquery.fancybox-thumbs.css/lib\/fancybox\/jquery.fancybox-thumbs.css/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/fancybox\/jquery.fancybox-thumbs.js/lib\/fancybox\/jquery.fancybox-thumbs.js/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/fancybox\/jquery.fancybox-media.js/lib\/fancybox\/jquery.fancybox-media.js/g' modules/mods/$m/web/index.html
-sed -i '' -e 's/socket.io\/socket.io.js/lib\/socket.io\/socket.io.js/g' modules/mods/$m/web/index.html
-
-
-#
-# local css/scripts
-#
-sed -i '' -e "s/href=\"\/$m\//href=\"/g" modules/mods/$m/web/index.html
-sed -i '' -e "s/src=\"\/$m\//src=\"/g" modules/mods/$m/web/index.html
-
-
-#
-# finish
-#
+  echo $m
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/jquery\/jquery-3.2.1.min.js/lib\/jquery\/jquery-3.2.1.min.js/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/jquery\/jquery-ui.min.css/lib\/jquery\/jquery-ui.min.css/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/jquery\/jquery-ui.min.js/lib\/jquery\/jquery-ui.min.js/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/fancybox\/jquery.fancybox.css/lib\/fancybox\/jquery.fancybox.css/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/fancybox\/jquery.fancybox.pack.js/lib\/fancybox\/jquery.fancybox.pack.js/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/fancybox\/jquery.fancybox-buttons.css/lib\/fancybox\/jquery.fancybox-buttons.css/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/fancybox\/jquery.fancybox-buttons.js/lib\/fancybox\/jquery.fancybox-buttons.js/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/fancybox\/jquery.fancybox-thumbs.css/lib\/fancybox\/jquery.fancybox-thumbs.css/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/fancybox\/jquery.fancybox-thumbs.js/lib\/fancybox\/jquery.fancybox-thumbs.js/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/fancybox\/jquery.fancybox-media.js/lib\/fancybox\/jquery.fancybox-media.js/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e 's/socket.io\/socket.io.js/lib\/socket.io\/socket.io.js/g' modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e "s/href=\"\/$m\//href=\"/g" modules/mods/$m/web/index.html
+[ -f modules/mods/$m/web/index.html ] && sed -i '' -e "s/src=\"\/$m\//src=\"/g" modules/mods/$m/web/index.html
 done
+
+exit 0
 
