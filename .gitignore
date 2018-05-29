@@ -7,6 +7,7 @@ lib/saito/web/browser.j*
 lib/saito/1
 lib/1
 lib/data/database.sq3
+lib/data/*.sql
 lib/data/database.bk
 lib/data/database.bk2
 lib/data/blocks/*.blk

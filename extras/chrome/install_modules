@@ -12,10 +12,10 @@ for d in modules/mods/* ; do
 #
 # create module dir
 #
-echo $m
-
-mkdir -p modules/mods
-cp -rf ../../lib/modules/mods/$m modules/mods/$m
+#echo $m
+#
+#mkdir -p modules/mods
+#cp -rf ../../lib/modules/mods/$m modules/mods/$m
 
 
 #
