@@ -1,0 +1,64 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+
+    <title>Saito Chat App</title>
+
+    <script type="text/javascript" src="/jquery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="/jquery/jquery-ui.min.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/jquery/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-buttons.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="/fancybox/jquery.fancybox-media.js"></script>
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/jquery.fancybox-thumbs.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/chat/style.css" />
+  </head>
+  <body>
+    <div id="Chat_browser_active"></div>
+    
+    <div id="container">
+      <section id="main">
+        <section id="messages-list">Messages list</section>
+        <section id="new-message">New message</section>
+        <!-- <MessageList messages={this.getMessages()}/>
+        <AddMessage addMessage={this.addMessage}/> -->
+
+        <section id="messages-list">
+            <ul class="messages-list">
+
+              <p id="message_id_0">
+                <i>BearGuy</i>: Welcome to Saito!
+              </p>
+            </ul>
+          </section>
+          <section id="new-message">
+            <input class="new-message-input" id="new-message-input">
+            </input>
+          </section>
+      </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="browser.js"></script>
+
+    <script type="text/javascript">
+      $.getScript("/browser.js", function(data, textStatus, jqxhr) {
+        $('.loader').hide();
+        $('.main').show();
+      });
+    </script>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- <div id="root"></div> -->
+
+  </body>
+</html>
