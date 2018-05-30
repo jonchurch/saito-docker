@@ -25,6 +25,8 @@ body {
 
 #header {
     grid-area: header;
+    display: grid;
+    grid-template-columns: 80% 20%;
     border-bottom: 1px solid #a5a5a5;
     font-size: 2em;
 }
@@ -36,10 +38,19 @@ body {
     margin-left: 10px;
 }
 
-@media only screen and (max-width: 750px)   {
+/* @media only screen and (max-width: 750px)   {
     #header > div {
         margin: auto
     }
+} */
+
+.chat-room-selector {
+    text-align-last:center;
+    border: black;
+}
+
+.chat-room-selector > option {
+    font-weight: bold;
 }
 
 @media only screen and (min-width: 750px)   {
@@ -47,6 +58,16 @@ body {
         width: 35px;
         margin-top: 5px;
         margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .chat-room-selector{
+        align-self: center;
+        height: 70%;
+    }
+
+    .chat-room-selector > option {
+        font-weight: bold;
     }
 }
 

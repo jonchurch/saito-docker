@@ -4,6 +4,8 @@
   "description": "big-data application blockchain",
   "main": "start.js",
   "scripts": {
+    "start": "cd lib && nodemon start.js",
+    "serve": "cd lib && node start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -45,5 +47,8 @@
     "sqlite3": "^4.0.0",
     "unzip": "^0.1.11",
     "url-parse": "^1.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
   }
 }
