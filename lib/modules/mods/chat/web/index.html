@@ -23,21 +23,37 @@
   </head>
   <body>
     <div id="Chat_browser_active"></div>
-
+    <!-- <div id="addUserModal" class="modal">
+      <div class="addUserModalContainer">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+    </div> -->
     <div id="container">
       <section id="header">
         <div style="display:flex; flex-direction: row;width: 207px;">
           <a href="/" style="text-decoration:none;color:inherits">
             <img id="saitoLogo" src="/img/saito_logo_black.png" />
           </a>
-          <a href="/" style="text-decoration:none;color:inherits"></a>
+          <a href="/" style="text-decoration:none;color:inherits">
             <div style="font-family:Georgia;padding-top:5px;color:#444;">saito chat</div>
           </a>
         </div>
         <select class="chat-room-selector">
         </select>
+        <button class="addUser">+</button>
       </section>
       <section id="main">
+        <!-- The Modal -->
+
+        <!-- <div id="lightbox_compose" style="display:none">
+          <div class="lightbox_compose_address_area">
+            <div class="lightbox_compose_compose">
+              <div class="send" id="send">SEND</div>
+            </div>
+          </div>
+        </div> -->
+
         <section id="messages-list">Messages:</section>
 
         <section id="messages-list">
@@ -57,11 +73,6 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/browser.js"></script>
     <script src="/chat/script.js"></script>
-
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <!-- <div id="root"></div> -->
 
   </body>
 </html>
