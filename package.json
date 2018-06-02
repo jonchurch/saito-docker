@@ -4,8 +4,9 @@
   "description": "big-data application blockchain",
   "main": "start.js",
   "scripts": {
-    "start": "cd lib && nodemon start.js",
-    "serve": "cd lib && node start.js",
+    "dev": "cd lib && NODE_ENV=dev node start.js",
+    "start": "cd lib && NODE_ENV=prod nodemon start.js",
+    "serve": "cd lib && NODE_ENV=prod node start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -46,7 +47,9 @@
     "socket.io-client": "^2.1.0",
     "sqlite3": "^4.0.0",
     "unzip": "^0.1.11",
-    "url-parse": "^1.4.0"
+    "url-parse": "^1.4.0",
+    "winston": "^3.0.0-rc6",
+    "winston-daily-rotate-file": "^3.2.1"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"
