@@ -4,7 +4,7 @@
   "description": "big-data application blockchain",
   "main": "start.js",
   "scripts": {
-    "dev": "cd lib && NODE_ENV=dev node start.js",
+    "dev": "cd lib && nodemon start.js",
     "start": "cd lib && NODE_ENV=prod nodemon start.js",
     "serve": "cd lib && NODE_ENV=prod node start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
