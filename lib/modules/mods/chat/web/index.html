@@ -22,6 +22,15 @@
     <link rel="stylesheet" type="text/css" href="/chat/style.css" />
   </head>
   <body>
+
+  <div class="loader">
+    Saito is currently loading....
+    <p></p>
+    We are downloading the application itself into your browser from our server in Los Angeles. The download is reasonably fast in the United States, but can take up to a minute in China due to its size (~1.6 MB). Please be patient.
+  </div>
+
+  <div class="main" style="display:none">
+
     <div id="Chat_browser_active"></div>
     <!-- <div id="addUserModal" class="modal">
       <div class="addUserModalContainer">
@@ -69,6 +78,8 @@
           </section>
       </section>
     </div>
+    </div>
+
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/browser.js"></script>
