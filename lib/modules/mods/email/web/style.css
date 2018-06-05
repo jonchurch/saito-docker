@@ -1,3 +1,41 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3.5em auto;
+  grid-template-areas:
+  "header"
+  "main";
+  width: 100vw;
+  height: 100vh;
+}
+
+#header {
+  grid-area: header;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 70% 30%;
+  grid-template-areas:
+  "brand brand";
+  border-bottom: 1px solid #a5a5a5;
+  font-size: 2em;
+}
+
+.brand {
+  grid-area: brand;
+}
+
+.balanceContainer {
+  grid-area: balanceContainer;
+  font-size: 0.5em;
+  align-self: center;
+}
+
+#saitoLogo {
+  width: 35px;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
 
 .mailboxes {
   margin-top: 10px;
@@ -73,13 +111,13 @@ body {
   padding-right: 20px;
 }
 
-.header {
+/* .header {
   width: 1200px;
   height: 50px;
-  #background-color: #e5e5e5;
+  background-color: #e5e5e5;
   border-bottom: 1px solid #a5a5a5;
   font-size: 2em;
-}
+} */
 
 .loader {
   width: 650px;
@@ -89,26 +127,51 @@ body {
 }
 
 .main {
-  max-width: 1200px;
-  width: 1200px;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 9% auto;
+  grid-template-areas:
+  "sidebar mail-header"
+  "sidebar mail";
+  width: 100%;
 }
 
 .sidebar {
   float: left;
-  width: 200px;
+  /* width: 200px; */
 }
 
 .mail {
+  grid-area: mail;
   float: left;
+  /* width: 1000px; */
+  /* cell-padding: 0px;
+  cell-spacing: 0px; */
+}
+
+.mail-header-desktop {
   margin-top: 20px;
-  width: 1000px;
-  cell-padding: 0px;
-  cell-spacing: 0px;
+  max-width: 975px;
+  grid-area: mail-header;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+  "mail-controls balance";
+}
+
+.mail-controls {
+  grid-area: mail-controls;
+}
+
+.balance {
+  grid-area: balance;
 }
 
 .mail tr {
-  width: 1000px;
-  cursor: pointer; //background: rgba(143, 143, 43, 0.85) none repeat scroll 0 0;
+  width: 100%;
+  cursor: pointer;
+  /* background: rgba(143, 143, 43, 0.85) none repeat scroll 0 0; */
 }
 
 .mail tr td {
@@ -131,6 +194,79 @@ body {
   width: 20px;
 }
 
+@media only screen and (max-width: 800px) {
+  .main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 9% auto;
+    grid-template-areas:
+    "mail-header sidebar"
+    "mail mail";
+    width: 100%;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .balanceHeader {
+    align-self: center;
+  }
+
+  .mail-header-desktop {
+    margin-top: 0px;
+    margin-left: 15px;
+  }
+
+  .mail-controls {
+    align-self: center;
+  }
+
+  .inner_message .time {
+    font-size: 0.7em;
+  }
+
+  #compose.compose {
+    margin: 15px;
+    height: 30px;
+  }
+}
+
+@media only screen and (max-width: 535px) {
+  #header {
+    grid-template-areas:
+    "brand balanceContainer";
+  }
+
+  .mail-header-desktop {
+    grid-template-columns: 6fr 1fr;
+  }
+
+  #mail_controls_settings.mail_controls_settings {
+    margin-left: 0px;
+  }
+
+  /* .mail-header-desktop {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "mail-controls";
+  } */
+
+  .balanceHeader > div {
+    z-index: -1;
+    color: #ffffff;
+  }
+}
+
+/* @media only screen and (max-width: 535px) {
+  #mail_controls_delete.mail_controls_delete {
+
+  }
+} */
+
 .inner_message .from {
   width: 200px;
   max-width: 200px;
@@ -140,7 +276,7 @@ body {
 
 .inner_message .title {
   width: 630px;
-  max-width: 630px;
+  /* max-width: 630px; */
   padding-left: 10px;
   overflow: hidden;
   border-top: 0px;
@@ -160,7 +296,7 @@ body {
 
 .mail_controls_delete {
   cursor: pointer;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
@@ -191,7 +327,7 @@ body {
 
 .mail_controls_settings {
   cursor: pointer;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   margin-left: 20px;
   padding-left: 10px;
   padding-right: 10px;
@@ -230,10 +366,10 @@ body {
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  #background-color: #e5e5e5;
+  /* background-color: #e5e5e5; */
   background-color: #ffffe0;
   border: 1px solid #a5a5a5;
-  max-width: 500px;
+  /* max-width: 500px; */
   font-size: 0.9em;
   font-weight: bold;
   float: left;
@@ -241,7 +377,7 @@ body {
 
 .balance {
   float: right;
-  margin-right: 25px;
+  margin-right: 5px;
   font-weight: bold;
   font-size: 1.15em;
   color: #555;

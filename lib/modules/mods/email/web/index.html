@@ -29,41 +29,58 @@
 
   <div id="Email_browser_active"></div>
 
-  <div class="header">
-    <a href="/" style="text-decoration:none;color:inherits">
-      <img src="/img/saito_logo_black.png" style="width:35px;margin-top:5px;margin-left:25px;margin-right:10px;float:left;" />
-      <div style="font-family:Georgia;padding-top:5px;font-size:1.2em;color:#444;">saito mail</div>
-    </a>
-  </div>
+  <div class="container">
+    <section id="header">
+      <div class="brand" style="display:flex; flex-direction: row;width: 207px;">
+        <a href="/" style="text-decoration:none;color:inherits">
+          <img id="saitoLogo" src="/img/saito_logo_black.png" />
+        </a>
+        <a href="/" style="text-decoration:none;color:inherits">
+          <div style="font-family:Georgia;padding-top:5px;color:#444;">saito mail</div>
+        </a>
+      </div>
+      <div class="balanceContainer">
+        <div class="balance" id="balance">SAITO</div>
+        <div class="balance_money" id="balance_money">0</div>
+        <div style="display:none" class="mail_controls_message" id="mail_controls_message"></div>
+      </div>
+    </section>
 
-  <div class="loader">
-    Saito is currently loading....
-    <p></p>
-    We are downloading the application itself into your browser from our server in Los Angeles. The download is reasonably fast in the United States, but can take up to a minute in China due to its size (~1.6 MB). Please be patient.
-  </div>
+    <div class="loader">
+      Saito is currently loading....
+      <p></p>
+      We are downloading the application itself into your browser from our server in Los Angeles. The download is reasonably fast in the United States, but can take up to a minute in China due to its size (~1.6 MB). Please be patient.
+    </div>
 
-  <div class="main" style="display:none">
+    <div class="main" style="display:none">
 
-    <div class="sidebar">
-      <div class="compose" id="compose">COMPOSE</div>
-      <div class="mailboxes" id="mailboxes">
-	<div id="mailbox_inbox" class="mailbox active">Inbox</div>
-	<div id="mailbox_sent" class="mailbox">Sent</div>
+      <div class="sidebar">
+        <div class="compose" id="compose">COMPOSE</div>
+        <div class="mailboxes" id="mailboxes">
+          <div id="mailbox_inbox" class="mailbox active">Inbox</div>
+          <div id="mailbox_sent" class="mailbox">Sent</div>
+        </div>
+      </div>
+
+      <div class="mail-header-desktop">
+        <div class="mail-controls">
+          <div class="mail_controls_delete" id="mail_controls_delete">delete selected</div>
+          <div class="mail_controls_settings" id="mail_controls_settings">edit settings</div>
+        </div>
+        <div class="balanceHeader">
+          <div class="balance" id="balance">SAITO</div>
+          <div class="balance_money" id="balance_money">0</div>
+          <div style="display:none" class="mail_controls_message" id="mail_controls_message"></div>
+        </div>
+      </div>
+
+
+      <div class="mail">
+        <table class="message_table">
+        </table>
       </div>
     </div>
 
-
-    <div class="mail">
-
-      <div class="mail_controls_delete" id="mail_controls_delete">delete selected</div>
-      <div class="mail_controls_settings" id="mail_controls_settings">edit settings</div>
-      <div class="balance" id="balance">SAITO</div>
-      <div class="balance_money" id="balance_money">0</div>
-      <div style="display:none" class="mail_controls_message" id="mail_controls_message"></div>
-
-      <table class="message_table">
-      </table>
-    </div>
   </div>
 
 
