@@ -28,6 +28,9 @@
   grid-area: balanceContainer;
   font-size: 0.5em;
   align-self: center;
+  color: white;
+  height: 0px;
+  width: 0px;
 }
 
 #saitoLogo {
@@ -130,7 +133,7 @@ body {
   grid-area: main;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 9% auto;
+  grid-template-rows: 3.5rem auto;
   grid-template-areas:
   "sidebar mail-header"
   "sidebar mail";
@@ -155,7 +158,7 @@ body {
   max-width: 975px;
   grid-area: mail-header;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-areas:
   "mail-controls balance";
 }
@@ -199,7 +202,7 @@ body {
     grid-area: main;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 9% auto;
+    grid-template-rows: 4.0rem auto;
     grid-template-areas:
     "mail-header sidebar"
     "mail mail";
@@ -212,6 +215,7 @@ body {
   }
 
   .balanceHeader {
+    justify-self: center;
     align-self: center;
   }
 
@@ -222,6 +226,7 @@ body {
 
   .mail-controls {
     align-self: center;
+    justify-self: center;
   }
 
   .inner_message .time {
@@ -241,23 +246,19 @@ body {
   }
 
   .mail-header-desktop {
-    grid-template-columns: 6fr 1fr;
+    grid-template-columns: 2fr 1fr;
   }
 
   #mail_controls_settings.mail_controls_settings {
     margin-left: 0px;
   }
 
-  /* .mail-header-desktop {
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    "mail-controls";
-  } */
-
   .balanceHeader > div {
-    z-index: -1;
-    color: #ffffff;
+    justify-self: center;
+  }
+
+  #balance.balance {
+    float: none;
   }
 }
 
@@ -335,8 +336,9 @@ body {
   padding-bottom: 5px;
   background-color: #e5e5e5;
   border: 1px solid #a5a5a5;
-  max-width: 85px;
-  width: 75px;
+  text-align: center;
+  /* max-width: 85px; */
+  width: 90px;
   font-size: 0.9em;
   font-weight: bold;
   float: left;
@@ -352,8 +354,8 @@ body {
   padding-bottom: 5px;
   background-color: #b5b5b5;
   border: 1px solid #a5a5a5;
-  max-width: 85px;
-  width: 75px;
+  /* max-width: 85px; */
+  width: 90px;
   font-size: 0.9em;
   font-weight: bold;
 }
