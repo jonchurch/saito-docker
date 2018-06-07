@@ -22,6 +22,15 @@
     <link rel="stylesheet" type="text/css" href="/chat/style.css" />
   </head>
   <body>
+
+  <div class="loader">
+    Saito is currently loading....
+    <p></p>
+    We are downloading the application itself into your browser from our server in Los Angeles. The download is reasonably fast in the United States, but can take up to a minute in China due to its size (~1.6 MB). Please be patient.
+  </div>
+
+  <div class="main" style="display:none">
+
     <div id="Chat_browser_active"></div>
     <!-- <div id="addUserModal" class="modal">
       <div class="addUserModalContainer">
@@ -41,7 +50,7 @@
         </div>
         <select class="chat-room-selector">
         </select>
-        <button class="addUser">+</button>
+        <!-- <button class="addUser">+</button> -->
       </section>
       <section id="main">
         <!-- The Modal -->
@@ -57,18 +66,20 @@
         <section id="messages-list">Messages:</section>
 
         <section id="messages-list">
-            <ul class="messages-list" id="All">
-              <p id="message_id_0" class="message">
-                <i>BearGuy</i>: Welcome to Saito!
-              </p>
-            </ul>
-          </section>
-          <section id="new-message">
-            <input class="new-message-input" id="new-message-input">
-            </input>
-          </section>
+          <ul class="messages-list" id="All">
+            <p id="message_id_0" class="message">
+              <i>BearGuy</i>: Welcome to Saito!
+            </p>
+          </ul>
+        </section>
+      </section>
+      <section id="new-message">
+        <input class="new-message-input" id="new-message-input">
+        </input>
       </section>
     </div>
+    </div>
+
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/browser.js"></script>
