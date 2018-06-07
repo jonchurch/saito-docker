@@ -295,69 +295,13 @@ body {
   height: 18px;
 }
 
-.mail_controls_delete {
+.mail_controls_btn {
   cursor: pointer;
-  /* margin-bottom: 15px; */
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #e5e5e5;
-  border: 1px solid #a5a5a5;
-  max-width: 95px;
-  width: 90px;
-  font-size: 0.9em;
-  font-weight: bold;
-  float: left;
-}
-
-.mail_controls_delete:hover {
-  cursor: pointer;
-  margin-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #b5b5b5;
-  border: 1px solid #a5a5a5;
-  max-width: 95px;
-  width: 90px;
-  font-size: 0.9em;
-  font-weight: bold;
-}
-
-.mail_controls_settings {
-  cursor: pointer;
-  /* margin-bottom: 15px; */
-  margin-left: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #e5e5e5;
-  border: 1px solid #a5a5a5;
-  text-align: center;
-  /* max-width: 85px; */
-  width: 90px;
-  font-size: 0.9em;
-  font-weight: bold;
-  float: left;
-}
-
-.mail_controls_settings:hover {
-  cursor: pointer;
-  margin-bottom: 15px;
-  margin-left: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #b5b5b5;
-  border: 1px solid #a5a5a5;
-  /* max-width: 85px; */
-  width: 90px;
-  font-size: 0.9em;
-  font-weight: bold;
+  font-size: 2em;
+  float:left;
+  max-width:40px;
+  margin-right: 10px;
+  color: #444;
 }
 
 .mail_controls_message {
