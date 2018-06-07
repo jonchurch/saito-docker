@@ -141,6 +141,7 @@ body {
 }
 
 .sidebar {
+  grid-area: sidebar;
   float: left;
   /* width: 200px; */
 }
@@ -197,6 +198,38 @@ body {
   width: 20px;
 }
 
+.selectEmailContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: 3.5rem 3.2rem auto;
+  grid-template-areas:
+  "sidebar mail-header mail-header"
+  "sidebar selectEmailReturn selectEmailHeader"
+  "sidebar selectEmailMain selectEmailMain";
+}
+
+.selectEmailReturn{
+  grid-area: selectEmailReturn;
+  margin-top: 1em;
+}
+
+.returnButton {
+  cursor: pointer;
+  font-size: 3em;
+}
+
+.selectEmailHeader {
+  grid-area: selectEmailHeader;
+  margin-top: 1em;
+  max-width: 30em;
+}
+
+.selectEmailMain {
+  grid-area: selectEmailMain;
+  overflow-y: scroll;
+  margin-right: 1em;
+}
+
 @media only screen and (max-width: 800px) {
   .main {
     grid-area: main;
@@ -237,6 +270,34 @@ body {
     margin: 15px;
     height: 30px;
   }
+
+  .selectEmailContainer {
+    display: grid;
+    margin: 1em;
+    grid-template-columns: 1fr 2fr 3fr;
+    grid-template-rows: 3.5rem 3.2rem auto;
+    grid-template-areas:
+    "mail-header mail-header mail-header"
+    "selectEmailReturn sidebar selectEmailHeader"
+    "selectEmailMain selectEmailMain selectEmailMain";
+  }
+
+  /* .selectEmailMain {
+    grid-column: 1 / 3;
+    overflow-y: scroll;
+  } */
+
+  .selectEmailMain > p{
+    font-size: 1.25em;
+  }
+
+  #mailbox_inbox {
+    color: white;
+  }
+
+  #mailbox_sent {
+    color: white;
+  }
 }
 
 @media only screen and (max-width: 535px) {
@@ -247,6 +308,7 @@ body {
 
   .mail-header-desktop {
     grid-template-columns: 2fr 1fr;
+    align-self: center;
   }
 
   #mail_controls_settings.mail_controls_settings {
