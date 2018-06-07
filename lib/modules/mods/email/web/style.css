@@ -535,7 +535,7 @@ body {
   border-top: 1px solid #c5c5c5;
   min-height: 520px;
   height: 520px;
-  overflow-horizontal: scroll;
+  overflow-x: scroll;
 }
 
 .module_editable_space {
