@@ -180,6 +180,8 @@ body {
     width: 100%;
     height: 100%;
     padding-left: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     font-size: 1.2em;
 }
 #messages-list {
@@ -188,6 +190,8 @@ body {
 
 .message {
     margin-right: 1px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 #sidebar {
