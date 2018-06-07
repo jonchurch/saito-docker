@@ -1,6 +1,7 @@
 package-lock.json
 node_modules
 node_modules/*
+lib/logs
 lib/data/database.sq3-journal
 lib/data/registry.sq3
 lib/saito/web/browser.j*
