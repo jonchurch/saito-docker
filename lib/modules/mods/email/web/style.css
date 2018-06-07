@@ -162,6 +162,7 @@ body {
   grid-template-columns: 2fr 1fr;
   grid-template-areas:
   "mail-controls balance";
+  border-bottom: 1px solid #d5d5d5;
 }
 
 .mail-controls {
@@ -181,8 +182,12 @@ body {
 .mail tr td {
   height: 34px;
   font-size: 1.15em;
-  border-top: 1px solid #d5d5d5;
 }
+
+.outer_message tr td {
+ border-bottom: 1px solid #d5d5d5;
+}
+
 
 .email_alert_box {
   font-size: 1.2em;
