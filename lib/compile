@@ -13,9 +13,13 @@ rm -f data/tmp/*.blk
 rm -f data/tmp/*.zip
 rm -f options
 rm -f modules/mod/registry/web/addresses.txt
+rm -f logs/*
+
 cp options.conf options
 
-./../node_modules/.bin/browserify browser.js -o saito/web/browser.js -i express -i sqlite3 -i express-basic-auth -i sendgrid -i request -i bluebird -i socket.io -i phantomjs -i express-fileupload -i body-parser -i shashmap -i http -i http-proxy -i simple-socks -i unzip -i node-zip -i shelljs
+./../node_modules/.bin/browserify browser.js -o saito/web/browser.js -i express -i sqlite3 -i express-basic-auth -i sendgrid -i request -i bluebird -i socket.io -i phantomjs -i express-fileupload -i body-parser -i shashmap -i http -i http-proxy -i simple-socks -i unzip -i node-zip -i shelljs -i keythereum -i ethereumjs-util -i crx
+
+# -i winston -i winston-daily-rotate-file
 
 
 for d in modules/mods/* ; do
