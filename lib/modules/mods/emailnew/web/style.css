@@ -128,6 +128,7 @@
  grid-area: mail-controls;
  justify-self: left;
  align-self: center;
+ min-width:80px;
 }
 .mail-controls-btn {
   cursor: pointer;
@@ -145,15 +146,16 @@
  grid-area: mail-alertbox;
  font-size: 1.2em;
  margin-top:4px;
- padding-left: 20px;
+ padding-left: 15px;
+ padding-right: 15px;
  justify-self: center;
  align-self: center;
 }
 .mail-balance {
  grid-area: mail-balance;
-  justify-self: right;
-  align-self: center;
-
+ justify-self: right;
+ align-self: center;
+ min-width:80px;
 }
 .balance {
  float: right;
@@ -176,10 +178,29 @@
  float: left;
  cell-spacing: 0px; */
 }
-.message {
- clear:both;
- padding-left:6px;
+
+.compose_email_container {
+  display: grid;
+  grid-template-rows: 5rem 3rem auto;
+  grid-template-areas:
+  "compose_address_area"
+  "compose_module_area"
+  "compose_module_edit_area";
+  margin-right: 1em;
+  row-gap: 0.8em;
 }
+
+/* CAN I CHANGE THIS WITHOUT BREAKING OTHER THINGS? */
+/* .message {
+ /* clear:both;
+ padding-left:6px; 
+ display: block;
+} */
+
+.lightbox_compose_address_area{
+  grid-area: compose_address_area;
+}
+
 .message-table {
  clear:both;
  width: 100%;
@@ -251,7 +272,8 @@
   width: 70px;
 }
 
-.lightbox_message_from_address {}
+.lightbox_message_from_address {
+}
 
 .lightbox_message_to {
   margin-top: 10px;
@@ -264,7 +286,8 @@
   font-weight: bold;
 }
 
-.lightbox_message_to_address {}
+.lightbox_message_to_address {
+}
 
 .lightbox_message_text {
   font-size: 1.2em;
@@ -276,125 +299,102 @@
   line-height: 27px;
   overflow-horizontal: scroll;
 }
+
 .module_editable_space {
+  grid-area: compose_module_edit_area;
   clear: both;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   min-height: 411px;
   font-size: 1rem;
-  line-height:1.2em;
-  max-width:830px;
+  line-height: 1.2em;
+  /* max-width:830px; */
 }
 
+
 .lightbox_compose_compose {
-  max-width:160px;
+  /* float: right; */
+  justify-self: right;
   width: 160px;
-  margin-left: auto;
 }
 
 .lightbox_compose_from {
+  display: grid;
+  grid-template-columns: 70px auto;
   font-size: 1.2em;
   margin-top: 5px;
 }
 
 .lightbox_compose_from_label {
-  float: left;
   font-weight: bold;
-  width: 70px;
-  padding-top: 8px;
+  align-self: center;
 }
 
 .lightbox_compose_from_address {
-  width: 80vw;
-  max-width: 760px;
   padding: 2px;
   font-size: 1.2em;
   opacity: 100%;
 }
 
 .lightbox_compose_to {
-  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 70px auto;
   font-size: 1.2em;
+  margin-top: 5px;
 }
 
 .lightbox_compose_to_label {
-  float: left;
-  width: 70px;
   font-weight: bold;
-  padding-top: 8px;
+  align-self: center;
 }
+
 .lightbox_compose_to_address {
-  width: 80vw;
-  max-width: 760px;
-  padding: 2px;
-  font-size: 1.2em;
-  opacity: 100%;
-}
-.module_editable_space {
-  clear: both;
-  margin-top: 20px;
-  min-height: 411px;
-}
-
-.lightbox_compose_compose {
-  float: right;
-  width: 160px;
-}
-
-.lightbox_compose_from {
-  font-size: 1.2em;
-  margin-top: 5px;
-}
-
-.lightbox_compose_from_label {
-  float: left;
-  font-weight: bold;
-  width: 70px;
-  padding-top: 8px;
-}
-
-.lightbox_compose_from_address {
-  max-width: 760px;
   padding: 2px;
   font-size: 1.2em;
   opacity: 100%;
 }
 
-.lightbox_compose_to {
-  margin-top: 10px;
-  font-size: 1.2em;
-}
-
-.lightbox_compose_to_label {
-  float: left;
-  max-width: 70px;
-  font-weight: bold;
-  padding-top: 8px;
-}
 .lightbox_compose_reply {
   margin-top: 10px;
 }
 
 .lightbox_compose_module {
-  margin-top: 10px;
+  grid-area: compose_module_area;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 70px;
   max-width: 760px;
-  width: 80vw;
+  width: 80vw; */
 }
 
 .lightbox_compose_module_box {
-  float: left;
+  display: grid;
+  /* justify-content: space-between; */
+  grid-template-columns: 1fr 1fr 1fr;
+  /* height: 50%; */
+  /* float: left; */
+  align-items: center;
   border: 1px solid #d6d6d6;
   background-color: #f7f7f7;
   padding: 4px;
-  margin-top: 6px;
+  /* margin-top: 6px;
+  margin-bottom: 6px; */
+}
+
+@media only screen and (max-width: 830px) {
+
+}
+
+.lightbox_compose_module_container {
+  grid-row: 1;
 }
 
 .lightbox_compose_module_select {
   font-size: 1.2em;
   padding: 3px;
   width: 100px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .lightbox_compose_module_alert {
@@ -402,26 +402,35 @@
   width: 552px;
 }
 
+.lightbox_compose_payment_container {
+  grid-template: 3;
+}
+
 .lightbox_compose_payment_label {
-  margin-left: 22px;
+  /* margin-left: 22px; */
   font-size: 1.2em;
   width: 100px;
 }
 
 .lightbox_compose_payment {
   font-size: 1.2em;
-  width: 63px;
+  width: 40%;
+}
+
+.lightbox_compose_fee_container {
+  grid-template: 2;
 }
 
 .lightbox_compose_fee_label {
-  margin-left: 15px;
+  /* margin-left: 15px; */
   font-size: 1.2em;
-  width: 70px;
+  /* width: 70px; */
 }
 
 .lightbox_compose_fee {
   font-size: 1.2em;
-  width: 63px;
+  /* width: 63px; */
+  width: 70%;
 }
 
 .redbutton {
@@ -456,19 +465,21 @@
 
 
 .email_title {
-  margin-top: 15px;
-  max-width: 830px;
-  width: 90vw;
+  /* margin-top: 15px; */
+  /* max-width: 830px; */
+  width: 100%;
   padding: 5px;
   font-size: 1.2em;
+  border-color: #444;
 }
 
 .email_body {
-  max-width: 830px;
-  width: 90vw;
+  /* max-width: 830px; */
+  width: 100%;
   height: 395px;
   font-size: 1.2em;
   padding: 5px;
+  border-color: #444;
 }
 
 
@@ -476,8 +487,33 @@
 
 
 
-@media only screen and (max-width: 800px) {
 
+@media only screen and (max-width: 535px) {
+
+  .logo_text {
+    display: none;
+  }
+
+  .mail-alertbox {
+    position:absolute;
+    left: 50px;
+    top:0px;
+    height: 49px;
+    margin-top: 5px;
+  }
+
+  .mail-alertbox-text {
+    vertical-align: bottom;
+  }
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 800px and min-width:536px) {
   .main {
     grid-area: main;
     display: grid;
@@ -528,5 +564,37 @@
     border-bottom: 1px solid #a5a5a5;
   }
 
+  .compose_email_container {
+    margin-left: 1em;
+    grid-template-rows: 5.5em 5.5em auto;
+  }
+
+  .lightbox_compose_module_box {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lightbox_compose_fee_container{
+    grid-column: 2/3;
+  }
+
+  .lightbox_compose_module_container {
+    grid-row: 1 / 3;
+  }
+
 }
+
+/*
+}
+  .mail_alertbox {
+    position:absolute;
+    left:200px;
+    top:0px;
+    width: 400px;
+    height: 49px;
+  }
+  
+
+*/
+
 
