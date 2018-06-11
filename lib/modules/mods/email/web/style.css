@@ -236,6 +236,7 @@ body {
 }
 
 .composeEmail {
+  font-size:1.15rem;
   display: grid;
   grid-area: mail;
   margin-top: 1em;
@@ -243,12 +244,17 @@ body {
   max-width: 975px;
   grid-gap: 0.25em;
   grid-template-columns: 0.5fr 6fr 1fr 1fr;
-  grid-template-rows:2rem 2rem 2rem auto;
+  grid-template-rows:2rem 2rem 2rem 2rem auto;
   grid-template-areas:
-  "composeEmailFromLabel composeEmailFrom composeEmailSendButton composeEmailSendButton"
-  "composeEmailToLabel composeEmailTo composeEmailSendButton composeEmailSendButton"
-  "composeEmailTitleLabel composeEmailTitle composeEmailAmount composeEmailFee"
+  "composeEmailFromLabel composeEmailFrom composeEmailFrom composeEmailSendButton"
+  "composeEmailToLabel composeEmailTo composeEmailTo composeEmailSendButton"
+  ". moduleSelector composeEmailAmount composeEmailFee"
+  "composeEmailTitleLabel composeEmailTitle composeEmailTitle composeEmailTitle"
   ". composeEmailMain composeEmailMain composeEmailMain";
+}
+
+.moduleSelector {
+  grid-area: moduleSelector;
 }
 
 .composeEmail > div > input {
@@ -296,6 +302,7 @@ body {
   display: flex;
   align-self: center;
   height: 2rem;
+  border: 1px solid #888;
 }
 
 .composeEmailMain {
@@ -327,10 +334,16 @@ body {
   align-self: center;
   
 }
+.composeEmailAmountInput {
+  max-width: 40px;
+}
 .composeEmailFee {
   grid-area: composeEmailFee;
   display: flex;
   align-self: center;
+}
+.composeEmailFeeInput {
+  max-width: 40px;
 }
 
 @media only screen and (max-width: 800px) {

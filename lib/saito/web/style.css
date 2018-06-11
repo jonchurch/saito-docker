@@ -41,8 +41,8 @@
 }
 
 .main {
- width: 80%;
- max-width: 640px;
+ width: 100vw;
+ height: 100vh;
  padding: 40px;
  font-size:1.2em;
 }
