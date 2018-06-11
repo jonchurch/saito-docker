@@ -27,7 +27,7 @@
 <body>
 
   <div id="Reddit_browser_active"></div>
-  <div class="redditContainer">
+
   <div class="header">
     <a href="/" style="text-decoration:none;color:inherits">
       <img src="/img/saito_logo_black.png" style="width:35px;margin-top:5px;margin-left:25px;margin-right:10px;float:left;" />
@@ -39,7 +39,6 @@
 
     <div class="posts_container">
       <div id="submit_post" class="submit_post">
-        <div class="submit_exit">&times;</div>
         <div for="submit_title" class="submit_title_label" id="submit_title_label">title:</div>
         <input type="text" class="submit_title" id="submit_title" name="submit_title" />
         <br />
@@ -54,8 +53,8 @@
         <br />
         <input type="button" class="submit_button" id="submit_button" value="publish to network" />
       </div>
-      <div class="loading_posts" id="loading_posts">Loading....</div>
-      <div class="posts" id="posts">&nbsp;</div>
+      
+      <div class="posts" id="posts">      <div class="post" id="post_2h3nZoNSGuLx4oSmhAMXTbSFSDZTx8dvcTFxTAY8AEU9Yof5RraSJ9nwWPKL1Ct2dc7Xb4UYPin1DnjeE8neXYBk">        <div class="post_author" id="post_author_2h3nZoNSGuLx4oSmhAMXTbSFSDZTx8dvcTFxTAY8AEU9Yof5RraSJ9nwWPKL1Ct2dc7Xb4UYPin1DnjeE8neXYBk">22QmYCxpHhxw1fiQutk99gsqtV4LcWBrazaby3r84s157</div>        <div class="votes">          <div class="upvote_wrapper" id="post_upvote_2h3nZoNSGuLx4oSmhAMXTbSFSDZTx8dvcTFxTAY8AEU9Yof5RraSJ9nwWPKL1Ct2dc7Xb4UYPin1DnjeE8neXYBk"><i class="fa fa-arrow-up upvote post_upvote" aria-hidden="true"></i></div>          <div class="votes_total" id="votes_total_2h3nZoNSGuLx4oSmhAMXTbSFSDZTx8dvcTFxTAY8AEU9Yof5RraSJ9nwWPKL1Ct2dc7Xb4UYPin1DnjeE8neXYBk">1</div>          <div class="downvote_wrapper" id="post_downvote_2h3nZoNSGuLx4oSmhAMXTbSFSDZTx8dvcTFxTAY8AEU9Yof5RraSJ9nwWPKL1Ct2dc7Xb4UYPin1DnjeE8neXYBk"><i class="fa fa-arrow-down downvote post_downvote" aria-hidden="true"></i></div>        </div>        <div class="thumbnail"><img src="/r/screenshots/1.png" class="thumbnail_image" onerror="this.src='/img/saito_logo_grey.png'" /></div>        <div class="content">          <div class="content_title"><a href="/r/saito/2h3nZoNSGuLx4oSmhAMXTbSFSDZTx8dvcTFxTAY8AEU9Yof5RraSJ9nwWPKL1Ct2dc7Xb4UYPin1DnjeE8neXYBk">SaitoToken</a> <div class="content_site">(<a href="/r/saito">/r/saito</a>)</div></div>          <div class="content_details">submitted by <span class="post_author_clickable" id="post_author_clickable_2h3nZoNSGuLx4oSmhAMXTbSFSDZTx8dvcTFxTAY8AEU9Yof5RraSJ9nwWPKL1Ct2dc7Xb4UYPin1DnjeE8neXYBk">22QmYCxpHhxw1fiQut...</span> to <a href="/r/saito">/r/saito</a></div>          <div class="content_links">            <a href="/r/saito/2h3nZoNSGuLx4oSmhAMXTbSFSDZTx8dvcTFxTAY8AEU9Yof5RraSJ9nwWPKL1Ct2dc7Xb4UYPin1DnjeE8neXYBk" class="content_link content_link_comments">read comments</a>            <div class="content_link content_link_report" id="content_link_report_2h3nZoNSGuLx4oSmhAMXTbSFSDZTx8dvcTFxTAY8AEU9Yof5RraSJ9nwWPKL1Ct2dc7Xb4UYPin1DnjeE8neXYBk">report</div>          </div>        </div>      </div>  </div>
       <div class="paginate" id="paginate">
 	<div class="last" id="last">last</div>
 	<div class="page" id="page"></div>
@@ -78,29 +77,28 @@
     </div>
 
   </div>
-  </div>
 
 
   <div style="display:none" id="lightbox_report" class="lightbox_report">
 
     <h2>Report this Post:</h2>
 
-    <p>
-      Please report illegal content to our admins for review and delisting. If you are offended at non-illegal content, you can blacklist the poster:
-    </p>
-    <!-- <p></p> -->
+    <p></p>
 
-    <div>
-      <div class="report_post_button" id="report_post_button">report post</div>
-      <div class="blacklist_user_button" id="blacklist_user_button">blacklist user</div>
-    </div>
+    Please report illegal content to our admins for review and delisting. If you are offended at non-illegal content, you can blacklist the poster:
 
-    <!-- <p style="clear:both;padding-top:15px;"></p> -->
+    <p></p>
 
-    <p>
-      <b>A Note on Moderation Policy:</b>
-      We strive to respect freedom of speech, but acknowledge that our moderation policies will be entirely arbitrary: if you don't like them setup a Saito server, mirror the entire website and set your own policies.
-    </p>
+    <div class="report_post_button" id="report_post_button">report post</div>
+    <div class="blacklist_user_button" id="blacklist_user_button">blacklist user</div>
+
+    <p style="clear:both;padding-top:15px;"></p>
+    
+    <b>A Note on Moderation Policy:</b>
+
+    <p></p>
+
+    We strive to respect freedom of speech, but acknowledge that our moderation policies will be entirely arbitrary: if you don't like them setup a Saito server, mirror the entire website and set your own policies.
 
   </div>
 
@@ -108,10 +106,10 @@
   <script src="/socket.io/socket.io.js"></script>
   <script type="text/javascript">
 
-    var subreddit = "";
+    var subreddit = "main";
     var post_id = "";
     var comment_id = "";
-    var load_content_on_load = 1;
+    var load_content_on_load = 0;
     var offset = 0;
 
     $.getScript( "/browser.js?id=8234243", function( data, textStatus, jqxhr ) {

@@ -1,101 +1,72 @@
-body {
-    font-family: arial, helvetica, sans-serif;
-    font-size: 13px;
-    padding:0px;
-    margin:0px;
+.body {
+ font-family: arial, helvetica, sans-serif;
+ font-size: 13px;
+ padding:0px;
+ margin:0px;
 }
 
 .logo {
-    width:35px;
-    margin-top:5px;
-    margin-left:25px;
-    margin-right:10px;
-    float:left;
+ width:35px;
+ margin-top:5px;
+ margin-left:25px;
+ margin-right:10px;
+ float:left;
 }
 
 .logo_link {
-    text-decoration:none;
-    color:inherits
+ text-decoration:none;
+ color:inherits
 }
 
 .logo_text {
-    font-family:Georgia;
-    padding-top:0px;
-    font-size:1.0em;
-    color:#444;
-}
-
-.redditContainer {
-    display: grid;
-    grid-template-rows: 3.2rem;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    "header"
-    'main';
+ font-family:Georgia;
+ padding-top:0px;
+ font-size:1.0em;
+ color:#444;
 }
 
 .loader {
-    width: 100%;
-    max-width: 600px;
-    font-size: 2em;
-    line-height: 1.8em;
-    padding: 30px;
+ width: 100%;
+ max-width: 600px;
+ font-size: 2em;
+ line-height: 1.8em;
+ padding: 30px;
 }
 
 .header {
-    grid-area: header;
-    /* width: 100%; */
-    height: 100%;
-    border-bottom: 1px solid #a5a5a5;
-    font-size: 2em;
+ width: 100%;
+ height: 50px;
+ border-bottom: 1px solid #a5a5a5;
+ font-size:2em;
 }
 
 .main {
-    grid-area: main;
-    display: grid;
-    margin: 0.75em;
-    grid-row-gap: 1em;
-    grid-column-gap: 1em;
-    grid-template-rows: 1fr;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas:
-    "content sidebar";
-    font-size: 1.2em;
+ min-width: 1200px;
+ max-width: 1600px;
+ padding: 40px;
+ font-size:1.2em;
 }
 
 
 .sidebar {
-    grid-area: sidebar;
-    float:left;
-    width: 304px;
+ float:left;
+ width: 304px;
+ min-height: 500px;
 }
 
-@media only screen and (max-width: 800px) {
-    .main {
-        grid-template-rows: auto auto;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-        "content" 
-        "sidebar";
-    }
-    .balance {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-    }
 
-}
+
 
 
 .votes_total {
-    clear:both;
-    margin-left: auto;
-    margin-right: auto;
-    padding-right:2px;
-    padding-top: 2px;
-    font-size: 16px;
-    text-align: center;
-    color: #888;
+ clear:both;
+ margin-left: auto;
+ margin-right: auto;
+ padding-right:2px;
+ padding-top: 2px;
+ font-size: 16px;
+ text-align: center;
+ color: #888;
 }
 .upvote_wrapper {
  clear:both;
@@ -106,7 +77,8 @@ body {
 }
 
 .posts_container {
-    grid-area: content;
+ float:left;
+ width:800px;
 }
 .posts {
  font-size: 1.1em;
@@ -118,17 +90,14 @@ body {
  cursor: pointer;
 }
 .submit_post {
- display: none;
- padding: 10px 30px 30px 30px;
- max-width: 45rem;
+ display:none;
+ padding:30px;
+ padding-bottom: 20px;
+ margin-left: 10px;
+ margin-right: 20px;
+ margin-bottom: 30px;
  border: 1px solid #888;
  background-color: #f7fdfd;
-}
-
-.submit_exit{
-    justify-self: right;
-    font-size: 2em;
-    cursor: pointer;
 }
 
 .submit_title {
@@ -153,6 +122,7 @@ body {
 }
 .submit_r {
  clear:both;
+ width: 650px;
 }
 .submit_r_label {
  margin-top: 15px;
@@ -216,7 +186,6 @@ body {
  font-size:1em;
 }
 .lightbox_report {
- display: grid;
  padding-left:20px;
  padding-right:20px;
  font-size:1.15em;
@@ -231,13 +200,13 @@ a:visited {
 input[type=text] {
  padding: 5px;
  font-size:1em;
- /* width: 650px; */
+ width: 650px;
  border: 1px solid #ccc;
 }
 textarea {
  padding: 5px;
  font-size:1em;
- /* width: 650px; */
+ width: 650px;
  height: 150px;
  border: 1px solid #ccc;
 }
@@ -250,7 +219,7 @@ textarea {
 
 
 .post {
- /* min-width: 600px; */
+ min-width: 600px;
  min-height: 75px;
  padding-bottom: 20px;
  clear:both;
@@ -276,7 +245,7 @@ textarea {
 }
 .content {
  float:left;
- /* min-width:500px; */
+ min-width:500px;
  max-width: 600px;
  margin-left: 15px;
  margin-bottom: 20px;
@@ -366,17 +335,16 @@ textarea {
 
 
 .discussion {
- display: grid;
  max-width: 800px;
- /* min-width: 600px; */
+ min-width: 600px;
  font-size: 1.1em;
- /* float:left; */
+ float:left;
 }
 
 .d {
  display: table;
- /* min-width: 800px;
- max-width: 1200px; */
+ min-width: 800px;
+ max-width: 1200px;
 }
 .upvote {
  color:#888;
@@ -401,11 +369,10 @@ textarea {
  background-color: #e7e7e7;
 }
 .d_content {
- display: grid;
  float:left;
- /* min-width:500px; */
+ min-width:500px;
  max-width: 600px;
- /* margin-left: 15px; */
+ margin-left: 15px;
  max-height: 70px;
  padding-left: 10px;
  padding-top: 0px;
