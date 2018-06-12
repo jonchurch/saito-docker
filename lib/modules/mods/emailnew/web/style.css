@@ -176,19 +176,20 @@
 .mail {
  grid-area: mail;
  float: left;
- cell-spacing: 0px; */
+ cell-spacing: 0px;
 }
 
 .compose_email_container {
-/*
+
   display: grid;
-  grid-template-rows: 5rem 3rem auto;
+  /* grid-template-rows: 5rem 3rem auto; */
+  grid-auto-rows: auto;
   grid-template-areas:
   "compose_address_area"
   "compose_module_area"
   "compose_module_edit_area";
   row-gap: 0.8em;
-*/
+
   margin-right: 1em;
 }
 
@@ -485,37 +486,7 @@
 }
 
 
-
-
-
-
-
-@media only screen and (max-width: 535px) {
-
-  .logo_text {
-    display: none;
-  }
-
-  .mail-alertbox {
-    position:absolute;
-    left: 50px;
-    top:0px;
-    height: 49px;
-    margin-top: 5px;
-  }
-
-  .mail-alertbox-text {
-    vertical-align: bottom;
-  }
-}
-
-
-
-
-
-
-
-@media only screen and (max-width: 800px and min-width:536px) {
+@media only screen and (max-width: 800px) {
   .main {
     grid-area: main;
     display: grid;
@@ -568,7 +539,7 @@
 
   .compose_email_container {
     margin-left: 1em;
-    grid-template-rows: 5.5em 5.5em auto;
+    /* grid-template-rows: 5.5em 5.5em auto; */
   }
 
   .lightbox_compose_module_box {
@@ -586,6 +557,25 @@
 
 }
 
+@media only screen and (max-width: 535px) {
+
+  .logo_text {
+    display: none;
+  }
+
+  .mail-alertbox {
+    position:absolute;
+    left: 50px;
+    top:0px;
+    height: 49px;
+    margin-top: 5px;
+  }
+
+  .mail-alertbox-text {
+    vertical-align: bottom;
+  }
+}
+
 /*
 }
   .mail_alertbox {
@@ -595,7 +585,6 @@
     width: 400px;
     height: 49px;
   }
-  
 
 */
 
