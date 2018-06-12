@@ -129,7 +129,7 @@
  grid-area: mail-controls;
  justify-self: left;
  align-self: center;
- min-width:115px;
+ min-width:80px;
 }
 .mail-controls-btn {
   cursor: pointer;
@@ -144,7 +144,7 @@
 .mail-controls-settings {
 }
 .returnButton {
-  display: all;
+  display: none;
   margin-right: 1em;
   color: black;
 }
@@ -470,10 +470,6 @@
 }
 
 
-.message_container {
- margin-left: 1em;
-}
-
 
 
 
@@ -483,7 +479,7 @@
   width: 100%;
   padding: 5px;
   font-size: 1.2em;
-  border: 1px solid #a5a5a5;
+  border-color: #444;
 }
 
 .email_body {
@@ -492,7 +488,7 @@
   height: 395px;
   font-size: 1.2em;
   padding: 5px;
-  border: 1px solid #a5a5a5;
+  border-color: #444;
 }
 
 
@@ -560,9 +556,6 @@
     border-bottom: 1px solid #a5a5a5;
   }
 
-  .mail-controls {
-    min-width: 115px;
-  }
   /* .mail-controls {
     justify-self: left;
     align-self: center;
@@ -620,28 +613,11 @@
 
   .mail-header {
     font-size: 1.45em;
-    padding-left: 0px;
-  }
-
-  .mail-controls-btn {
-    padding-top: 15px;
-  }
-
-  .mail-controls-back {
-    background-color:  #e5e5e5;
-    width: 70px;
-    float: left;
-    height: 48px;
-    max-width: 80px;
-    padding-left: 25px;
-    border-right: 1px solid #a5a5a5;
-    display: none;
   }
 
   .mail-alertbox-text {
     vertical-align: bottom;
   }
-
 }
 
 
