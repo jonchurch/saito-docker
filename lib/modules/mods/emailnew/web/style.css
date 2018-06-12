@@ -46,7 +46,7 @@
  display: grid;
  grid-column-gap: 1em;
  grid-template-columns: 1fr 5fr;
- grid-template-rows: 3.5rem auto;
+ /* grid-template-rows: 3.5rem auto; */
  grid-template-areas:
  "sidebar mail-header"
  "sidebar mail";
@@ -115,6 +115,7 @@
 
 .mail-header {
  margin-top: 20px;
+ padding-bottom: 10px;
  max-width: 1275px;
  grid-area: mail-header;
  display: grid;
@@ -152,8 +153,8 @@
  grid-area: mail-alertbox;
  font-size: 1.2em;
  margin-top:4px;
- padding-left: 15px;
- padding-right: 15px;
+ /* padding-left: 15px;
+ padding-right: 15px; */
  justify-self: center;
  align-self: center;
 }
@@ -262,15 +263,34 @@
  border-bottom: 1px solid #d5d5d5;
 }
 
+.select_email_container {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: 1fr;
+}
+
+.lightbox_message_title {
+  display: grid;
+  grid-auto-columns: auto;
+  grid-auto-rows: auto;
+  grid-template-areas:
+  "message_from message_reply"
+  "message_to message_reply";
+}
+
 
 .lightbox_message_reply {
+  grid-area: message_reply;
   font-size: 1em;
   width: 160px;
-  margin-right: 15px;
-  float: right;
+  /* margin-right: 15px;
+  float: right; */
+  justify-self: right;
+  align-self: center;
 }
 
 .lightbox_message_from {
+  grid-area: message_from;
   font-size: 1.2em;
   margin-top: 10px;
 }
@@ -285,6 +305,7 @@
 }
 
 .lightbox_message_to {
+  grid-area: message_to;
   margin-top: 10px;
   font-size: 1.2em;
 }
@@ -389,10 +410,6 @@
   padding: 4px;
   /* margin-top: 6px;
   margin-bottom: 6px; */
-}
-
-@media only screen and (max-width: 830px) {
-
 }
 
 .lightbox_compose_module_container {
@@ -586,6 +603,13 @@
 
   .mail-alertbox-text {
     vertical-align: bottom;
+  }
+
+  .lightbox_message_title {
+    grid-template-areas:
+    "message_from"
+    "message_to"
+    "message_reply";
   }
 }
 
