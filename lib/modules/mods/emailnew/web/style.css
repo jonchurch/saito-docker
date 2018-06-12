@@ -44,6 +44,7 @@
 
 .main {
  display: grid;
+ grid-column-gap: 1em;
  grid-template-columns: 1fr 5fr;
  grid-template-rows: 3.5rem auto;
  grid-template-areas:
@@ -120,8 +121,8 @@
  grid-template-columns: 1fr auto 1fr;
  grid-template-areas:
  "mail-controls mail-alertbox mail-balance";
- padding-left: 10px;
- padding-right: 10px;
+ /* padding-left: 10px;
+ padding-right: 10px; */
  border-bottom: 1px solid #d5d5d5;
 }
 .mail-controls {
@@ -141,6 +142,11 @@
 .mail-controls-delete {
 }
 .mail-controls-settings {
+}
+.returnButton {
+  display: none;
+  margin-right: 1em;
+  color: black;
 }
 .mail-alertbox {
  grid-area: mail-alertbox;
@@ -490,6 +496,7 @@
   .main {
     grid-area: main;
     display: grid;
+    grid-column-gap: 0em;
     grid-template-columns: auto 2fr;
     grid-template-rows: 4.0rem auto;
     grid-template-areas:
@@ -518,13 +525,14 @@
     border-bottom: 1px solid #a5a5a5;
   }
 
-  .mail-controls {
+  /* .mail-controls {
     justify-self: left;
     align-self: center;
-  }
+  } */
   .mail-alertbox {
     justify-self: center;
     align-self: center;
+    font-size: 1em;
   }
   .mail-balance {
     justify-self: right;
@@ -569,6 +577,11 @@
     top:0px;
     height: 49px;
     margin-top: 5px;
+    font-size: 0.75em;
+  }
+
+  .mail-header {
+    font-size: 1.45em;
   }
 
   .mail-alertbox-text {
