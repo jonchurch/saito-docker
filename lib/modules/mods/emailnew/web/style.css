@@ -201,11 +201,12 @@
 }
 
 /* CAN I CHANGE THIS WITHOUT BREAKING OTHER THINGS? */
-/* .message {
- /* clear:both;
- padding-left:6px; 
+.message {
+ clear:both;
+ padding-left:1em; 
+ padding-right:1em;
  display: block;
-} */
+} 
 
 .lightbox_compose_address_area{
   grid-area: compose_address_area;
@@ -257,6 +258,10 @@
 .mail tr td {
   height: 34px;
   font-size: 1.15em;
+}
+
+td .from {
+  min-width:200px;
 }
 
 .outer_message tr td {
@@ -513,12 +518,11 @@
 }
 
 
-<<<<<<< HEAD
 
 
 
 
-
+/*
 @media only screen and (max-width: 535px) {
 
   .logo_text {
@@ -537,7 +541,7 @@
     vertical-align: bottom;
   }
 }
-
+*/
 
 
 
