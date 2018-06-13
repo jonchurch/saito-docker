@@ -1,4 +1,24 @@
 
+.mail-module-label {
+ font-weight:bold;
+ position:absolute;
+ display:none;
+ z-index: 1000;
+ background-color: white;
+ margin-left: 50px;
+ font-size: 1.4em;
+ height: 20px;
+ padding-top: 5px;
+ padding-bottom: 5px;
+ min-width:120px;
+}
+
+
+
+
+
+
+
 .body, body {
  font-family: arial, helvetica, sans-serif, sans;
  font-size: 13px;
