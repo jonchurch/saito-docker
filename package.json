@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cd lib && nodemon start.js",
     "start": "cd lib && NODE_ENV=prod nodemon start.js",
-    "serve": "cd lib && NODE_ENV=prod node start.js",
+    "serve": "cd lib && NODE_ENV=prod nohup node --max_old_space_size=4144 start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
