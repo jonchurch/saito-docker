@@ -1,8 +1,17 @@
 .body, body {
  font-family: arial, helvetica, sans-serif, sans;
- font-size: 13px;
+ font-size: 0.9em;
  padding:0px;
  margin:0px;
+}
+
+.index-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-template-areas:
+  "header"
+  "main";
 }
 
 .logo {
@@ -34,6 +43,7 @@
 }
 
 .header {
+ grid-area: header;
  width: 100%;
  height: 50px;
  border-bottom: 1px solid #a5a5a5;
@@ -41,10 +51,20 @@
 }
 
 .main {
- width: 100vw;
- height: 100vh;
- padding: 40px;
- font-size:1.2em;
+ grid-area: main;
+ padding-left: 1em;
+ padding-right: 1em;
+ font-size: 1.2em;
+}
+
+@media only screen and (min-width: 535px) {
+  .main {
+    padding: 2.1em;
+  }
+
+  .body {
+    font-size : 13px;
+  }
 }
 
 li {

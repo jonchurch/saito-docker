@@ -6,6 +6,18 @@
  margin:0px;
 }
 
+.email-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 3.2em auto; */
+  grid-auto-rows: min-content;
+  grid-template-areas:
+  "header"
+  "main";
+  width: 100vw;
+  height: 100vh;
+}
+
 .logo {
  width:35px;
  margin-top:5px;
@@ -27,6 +39,7 @@
 }
 
 .header {
+ grid-area: header;
  font-size: 2em;
  width: 100%;
  height: 50px;
@@ -43,22 +56,17 @@
 
 
 .main {
+ grid-area: main;
  display: grid;
  grid-column-gap: 1em;
  grid-template-columns: 1fr 5fr;
+ grid-auto-rows: min-content;
  /* grid-template-rows: 3.5rem auto; */
  grid-template-areas:
  "sidebar mail-header"
  "sidebar mail";
  width: 100%;
 }
-
-
-
-
-
-
-
 
 
 .sidebar {
@@ -145,9 +153,8 @@
 .mail-controls-settings {
 }
 .returnButton {
-  display: all;
   margin-right: 1em;
-  color: black;
+  color: #444;
 }
 .mail-alertbox {
  grid-area: mail-alertbox;
@@ -201,12 +208,14 @@
 }
 
 /* CAN I CHANGE THIS WITHOUT BREAKING OTHER THINGS? */
+/*
 .message {
  clear:both;
  padding-left:1em; 
  padding-right:1em;
  display: block;
 } 
+*/
 
 .lightbox_compose_address_area{
   grid-area: compose_address_area;
@@ -272,15 +281,22 @@ td .from {
   display: grid;
   grid-auto-rows: auto;
   grid-template-columns: 1fr;
+  grid-template-areas:
+  "title"
+  "text";
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .lightbox_message_title {
+  grid-area: title;
   display: grid;
   grid-auto-columns: auto;
   grid-auto-rows: auto;
   grid-template-areas:
   "message_from message_reply"
   "message_to message_reply";
+  overflow-x: hidden;
 }
 
 
@@ -288,6 +304,7 @@ td .from {
   grid-area: message_reply;
   font-size: 1em;
   width: 160px;
+  /* width: 100%; */
   /* margin-right: 15px;
   float: right; */
   justify-self: right;
@@ -296,14 +313,17 @@ td .from {
 
 .lightbox_message_from {
   grid-area: message_from;
+  display: grid;
+  grid-template-columns: 70px auto;
+  grid-template-rows: auto;
   font-size: 1.2em;
   margin-top: 10px;
 }
 
 .lightbox_message_from_label {
-  float: left;
+  /* float: left; */
   font-weight: bold;
-  width: 70px;
+  /* width: 70px; */
 }
 
 .lightbox_message_from_address {
@@ -311,13 +331,16 @@ td .from {
 
 .lightbox_message_to {
   grid-area: message_to;
+  display: grid;
+  grid-template-columns: 70px auto;
+  grid-template-rows: auto;
   margin-top: 10px;
   font-size: 1.2em;
 }
 
 .lightbox_message_to_label {
-  float: left;
-  width: 70px;
+  /* float: left; */
+  /* width: 70px; */
   font-weight: bold;
 }
 
@@ -325,6 +348,7 @@ td .from {
 }
 
 .lightbox_message_text {
+  grdi-area: text;
   font-size: 1.2em;
   margin-top: 10px;
   padding-top: 10px;
@@ -332,7 +356,7 @@ td .from {
   min-height: 520px;
   height: 520px;
   line-height: 27px;
-  overflow-horizontal: scroll;
+  overflow-x: scroll;
 }
 
 .module_editable_space {
@@ -343,6 +367,58 @@ td .from {
   font-size: 1rem;
   line-height: 1.2em;
   /* max-width:830px; */
+}
+
+
+.module_instructions {
+  width: 80%;
+  height: 438px;
+  padding: 40px;
+  font-size: 1.4em;
+  line-height: 1.8em;
+  line-spacing: 1.8m;
+}
+
+.module_textinput {
+  margin-top: 15px;
+  width: 200px;
+  padding: 5px;
+  font-size: 1.2em;
+  float: left;
+}
+
+.module_textinput_details {
+  margin-left: 5px;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  float: left;
+}
+
+.module_textinput_button {
+  clear: both;
+  max-width: 140px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 20px;
+  color: #ffffff;
+  background-color: #d14836;
+  text-align: center;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-right: 10px;
+  line-height: 27px;
+  font-weight: bold;
+  background-image: linear-gradient(to bottom, #dd4b39, #d14836);
+  border: 1px solid #b0281a;
+  cursor: pointer;
+}
+
+.module_textinput_button:hover {
+  background-image: linear-gradient(to bottom, #dd4b39, #c53727);
+  border: 1px solid #b0281a;
 }
 
 
@@ -487,17 +563,10 @@ td .from {
   border: 1px solid #b0281a;
 }
 
-.send {
-
-}
-
 
 .message_container {
  margin-left: 1em;
 }
-
-
-
 
 .email_title {
   /* margin-top: 15px; */
@@ -521,33 +590,6 @@ td .from {
 
 
 
-
-/*
-@media only screen and (max-width: 535px) {
-
-  .logo_text {
-    display: none;
-  }
-
-  .mail-alertbox {
-    position:absolute;
-    left: 50px;
-    top:0px;
-    height: 49px;
-    margin-top: 5px;
-  }
-
-  .mail-alertbox-text {
-    vertical-align: bottom;
-  }
-}
-*/
-
-
-
-
-
-
 @media only screen and (max-width: 800px) {
   .main {
     grid-area: main;
@@ -559,6 +601,8 @@ td .from {
     "sidebar mail-header"
     "mail mail";
     width: 100%;
+    /* margin-left: 1em;
+    margin-right: 1em; */
   }
 
   .compose {
@@ -581,9 +625,9 @@ td .from {
     border-bottom: 1px solid #a5a5a5;
   }
 
-  .mail-controls {
+  /* .mail-controls {
     min-width: 115px;
-  }
+  } */
   /* .mail-controls {
     justify-self: left;
     align-self: center;
@@ -601,6 +645,7 @@ td .from {
   .mail-header {
     margin-top: 0px;
     padding-left: 15px;
+    padding-bottom: 0px;
     border-bottom: 1px solid #a5a5a5;
   }
 
@@ -624,15 +669,32 @@ td .from {
 
 }
 
-@media only screen and (max-width: 535px) {
+@media only screen and (max-width: 650px){
+  .lightbox_message_title {
+    grid-template-areas:
+    "message_from"
+    "message_to"
+    "message_reply";
+  }
 
+  .lightbox_message_reply {
+    width: 100%;
+  }
+
+  .redbutton#reply {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 535px) {
   .logo_text {
     display: none;
   }
 
   .mail-alertbox {
     position:absolute;
-    left: 50px;
+    left: 70px;
     top:0px;
     height: 49px;
     margin-top: 5px;
@@ -645,14 +707,15 @@ td .from {
   }
 
   .mail-controls-btn {
-    padding-top: 15px;
+    padding-top: 12px;
   }
 
   .mail-controls-back {
     background-color:  #e5e5e5;
     width: 70px;
     float: left;
-    height: 48px;
+    height: 51px;
+    padding-top:12px;
     max-width: 80px;
     padding-left: 25px;
     border-right: 1px solid #a5a5a5;
@@ -661,13 +724,6 @@ td .from {
 
   .mail-alertbox-text {
     vertical-align: bottom;
-  }
-
-  .lightbox_message_title {
-    grid-template-areas:
-    "message_from"
-    "message_to"
-    "message_reply";
   }
 }
 
