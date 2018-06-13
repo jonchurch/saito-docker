@@ -130,8 +130,6 @@
  grid-template-columns: 1fr auto 1fr;
  grid-template-areas:
  "mail-controls mail-alertbox mail-balance";
- /* padding-left: 10px;
- padding-right: 10px; */
  border-bottom: 1px solid #d5d5d5;
 }
 .mail-controls {
@@ -141,20 +139,21 @@
  min-width:115px;
 }
 .mail-controls-btn {
-  cursor: pointer;
-  font-size: 2em;
-  float:left;
-  max-width:40px;
-  margin-right: 10px;
-  color: #444;
+ cursor: pointer;
+ font-size: 2em;
+ float:left;
+ max-width:40px;
+ margin-right: 10px;
+ color: #444;
 }
 .mail-controls-delete {
 }
 .mail-controls-settings {
 }
 .returnButton {
-  margin-right: 1em;
-  color: #444;
+ display:none;
+ margin-right: 1em;
+ color: #444;
 }
 .mail-alertbox {
  grid-area: mail-alertbox;
