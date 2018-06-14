@@ -201,7 +201,6 @@
 .mail {
  grid-area: mail;
  float: left;
- cell-spacing: 0px;
 }
 
 .compose_email_container {
@@ -341,7 +340,7 @@ td .from {
 }
 
 .lightbox_message_text {
-  grdi-area: text;
+  grid-area: text;
   font-size: 1.2em;
   margin-top: 10px;
   padding-top: 10px;
@@ -367,7 +366,6 @@ td .from {
   padding: 40px;
   font-size: 1.4em;
   line-height: 1.8em;
-  line-spacing: 1.8m;
 }
 
 .module_textinput {
@@ -613,8 +611,8 @@ td .from {
         padding:0
 }
 #primary_nav_wrap ul ul li {
-        float:none;
-        width:200px
+    float:none;
+    width:200px;
     padding-left: 15px;
     padding-top: 10px;
     padding-bottom: 0px;
