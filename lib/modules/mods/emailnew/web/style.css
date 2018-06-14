@@ -38,11 +38,11 @@
 }
 
 .logo {
- width:35px;
- margin-top:5px;
- margin-left:25px;
- margin-right:10px;
- float:left;
+  width:35px;
+  margin-top:5px;
+  margin-left: 1em;
+  margin-right: 0.35em;
+  float:left;
 }
 
 .logo_link {

@@ -14,11 +14,19 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: 4.0rem auto;
+    grid-template-rows: 3.2rem auto;
     grid-template-columns: 1fr;
     grid-template-areas:
     "header"
     "main";
+}
+
+.logo {
+    width: 35px;
+    margin-top: 5px;
+    margin-left: 1em;
+    margin-right: 0.35em;
+    float:left;
 }
 
 .header {
@@ -27,7 +35,7 @@ body {
     height: 50px; */
     color: #ffffff;
     background-color: #39579a;
-    #background-color: #e5e5e5;
+    /* #background-color: #e5e5e5; */
     border-bottom: 1px solid #a5a5a5;
     font-size: 2em;
 }
@@ -38,30 +46,55 @@ body {
 
 .main {
     grid-area: main;
+    display: grid;
+    grid-template-columns: 300px 600px 300px;
+    grid-column-gap: 1em;
     padding-top: 15px;
-    /* width: 1200px; */
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 1185px) {
+    .header {
+        font-size: 1em;
+    }
+
+    .main {
+        grid-template-columns: 1fr;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .menu {
+        font-size: 1.25em;
+    }
 }
 
 .menu {
- float: left;
- width: 200px;
+    float: left;
+    width: 100%;
 }
+
+.button_container {
+    display: flex;
+    justify-content: space-between;
+    width: 15em;
+}
+
 .posts {
  float: left;
- width: 594px;
+ /* width: 594px; */
 }
 .following {
- clear:both;
- width: 300px;
- margin-left: 10px;
+ /* clear:both;
+ width: 300px; */
+ /* margin-left: 10px; */
  padding-top: 5px;
 }
 .following_label {
  color: #365899;
  line-height: 1.3em;
- font-size: 14px;
+ /* font-size: 14px; */
  font-weight:bold;
 }
 .following_friend {
@@ -247,8 +280,8 @@ body {
  padding-right:12px;
  padding-top:6px;
  padding-bottom:6px;
- margin-left:12px;
- margin-right:12px;
+ /* margin-left:12px; */
+ /* margin-right:12px; */
  margin-top:4px;
  margin-bottom:24px;
  font-weight:bold;
@@ -293,9 +326,9 @@ body {
 
 
 .balance {
- clear:both;
- width: 300px;
- margin-left: 10px;
+ /* clear:both; */
+ /* width: 300px; */
+ /* margin-left: 10px; */
  padding-bottom: 30px;
 }
 .balance_label {
@@ -303,14 +336,14 @@ body {
  margin-left:6px;
  color: #555;
  line-height: 1.3em;
- font-size: 14px;
+ /* font-size: 14px; */
  font-weight:bold;
 }
 .balance_money {
  float:left;
  color: #555;
  line-height: 1.3em;
- font-size: 14px;
+ /* font-size: 14px; */
  font-weight:bold;
 }
 
@@ -348,7 +381,6 @@ body {
 
 
 .advert-300-250 {
- margin-left: 15px;
  float:left;
 }
 
