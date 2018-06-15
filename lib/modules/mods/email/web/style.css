@@ -160,6 +160,7 @@
 .mail-controls-delete {
 }
 .mail-controls-settings {
+ margin-right: 0px;
 }
 .returnButton {
  display:none;
@@ -172,6 +173,12 @@
  margin-top:4px;
  justify-self: center;
  align-self: center;
+ z-index: 2000;
+ background-color: white;
+ padding-left: 10px;
+ padding-right: 10px;
+ padding-top: 3px;
+ padding-bottom: 3px;
 }
 .mail-balance {
  grid-area: mail-balance;
@@ -254,6 +261,9 @@
   vertical-align: center;
 }
 
+.reply {
+  margin-top: 7px;
+}
 .mail tr {
   width: 100%;
   cursor: pointer;
@@ -583,7 +593,8 @@ td .from {
   display:block;
   color:#333;
   text-decoration:none;
-  padding:0 15px;
+  padding-left: 14px;
+  padding-right: 12px;
   font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 #primary_nav_wrap ul li {
@@ -596,7 +607,7 @@ td .from {
   background:#ddd
 }
 #primary_nav_wrap ul li:hover {
-  background:#f6f6f6
+/*        background:#f6f6f6 */
 }
 #primary_nav_wrap ul ul {
   display:none;
@@ -707,6 +718,10 @@ td .from {
 @media only screen and (max-width: 535px) {
   .logo_text {
     display: none;
+  }
+
+  .mail-controls-delete {
+    margin-left: 12px;
   }
 
   .mail-alertbox {
