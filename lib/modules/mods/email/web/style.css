@@ -1,20 +1,17 @@
 
 .mail-module-label {
- font-weight:bold;
- position:absolute;
- display:none;
- z-index: 1000;
- background-color: white;
- margin-left: 50px;
- font-size: 1.4em;
- height: 20px;
- padding-top: 5px;
- padding-bottom: 5px;
- min-width:120px;
+  font-weight:bold;
+  position:absolute;
+  display:none;
+  z-index: 1000;
+  background-color: white;
+  margin-left: 50px;
+  font-size: 1.4em;
+  height: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  min-width:120px;
 }
-
-
-
 
 
 
@@ -76,7 +73,7 @@
 
 .main {
  grid-area: main;
- display: grid;
+ display: none;
  grid-column-gap: 1em;
  grid-template-columns: 1fr 5fr;
  grid-auto-rows: min-content;
@@ -163,6 +160,7 @@
 .mail-controls-delete {
 }
 .mail-controls-settings {
+ margin-right: 0px;
 }
 .returnButton {
  display:none;
@@ -207,11 +205,9 @@
 .mail {
  grid-area: mail;
  float: left;
- cell-spacing: 0px;
 }
 
 .compose_email_container {
-
   display: grid;
   grid-auto-rows: auto;
   grid-template-areas:
@@ -376,7 +372,6 @@ td .from {
   padding: 40px;
   font-size: 1.4em;
   line-height: 1.8em;
-  line-spacing: 1.8m;
 }
 
 .module_textinput {
@@ -558,7 +553,7 @@ td .from {
 
 
 .message_container {
- margin-left: 1em;
+  margin-left: 1em;
 }
 
 .email_title {
@@ -588,52 +583,53 @@ td .from {
 }
 
 #primary_nav_wrap ul {
-        list-style:none;
-        position:relative;
-        float:left;
-        margin:0;
-        padding:0
+  list-style:none;
+  position:relative;
+  float:left;
+  margin:0;
+  padding:0
 }
 #primary_nav_wrap ul a {
-        display:block;
-        color:#333;
-        text-decoration:none;
-        padding:0 15px;
-        font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+  display:block;
+  color:#333;
+  text-decoration:none;
+  padding-left: 14px;
+  padding-right: 12px;
+  font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 #primary_nav_wrap ul li {
-        position:relative;
-        float:left;
-        margin:0;
-        padding:0
+  position:relative;
+  float:left;
+  margin:0;
+  padding:0
 }
 #primary_nav_wrap ul li.current-menu-item {
-        background:#ddd
+  background:#ddd
 }
 #primary_nav_wrap ul li:hover {
 /*        background:#f6f6f6 */
 }
 #primary_nav_wrap ul ul {
-        display:none;
-        position:absolute;
-        top:100%;
-        left:0;
-        background:#fff;
-        padding:0
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  padding:0
 }
 #primary_nav_wrap ul ul li {
-        float:none;
-        width:200px
-    padding-left: 15px;
-    padding-top: 10px;
-    padding-bottom: 0px;
+  float:none;
+  width:200px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 0px;
 }
 #primary_nav_wrap ul ul a {
-        line-height:120%;
-        padding:10px 15px
+  line-height:120%;
+  padding:10px 15px
 }
 #primary_nav_wrap ul li:hover > ul {
-        display:block
+  display:block
 }
 
 
@@ -724,6 +720,10 @@ td .from {
     display: none;
   }
 
+  .mail-controls-delete {
+    margin-left: 12px;
+  }
+
   .mail-alertbox {
     position:absolute;
     left: 70px;
@@ -758,7 +758,7 @@ td .from {
     border-right: 1px solid #a5a5a5;
     display: none;
   }
-  
+
   .mail-controls-settings {
     margin-left: 10px;
   }
