@@ -13,12 +13,10 @@ body {
 
 #container {
     display: grid;
+    position: fixed;
     grid-template-columns: 1fr;
-    grid-template-rows: 3.2em auto 2em;
-    grid-template-areas:
-    "header"
-    "main"
-    ".";
+    grid-template-rows: 3.2em auto 3.0em;
+    grid-template-areas: "header" "main" ".";
     width: 100vw;
     height: 100vh;
 }
@@ -169,12 +167,10 @@ body {
 }
 
 #new-message {
-    /*grid-area: input; */
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 0%;
     width: 100%;
     height: 3em;
-    /* padding: 20px; */
     margin-left: 0px;
     border-top: 1px solid #3f3f3f;
 }
