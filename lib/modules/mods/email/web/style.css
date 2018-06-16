@@ -366,9 +366,7 @@ td .from {
 
 
 .module_instructions {
-  width: 80%;
-  height: 438px;
-  padding: 40px;
+  padding-top: 50px;
   font-size: 1.4em;
   line-height: 1.8em;
 }
