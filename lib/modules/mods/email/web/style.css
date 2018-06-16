@@ -720,6 +720,14 @@ td .from {
     margin-left: 12px;
   }
 
+  .inner_message .from {
+    width: 120px;
+    max-width: 120px;
+    overflow: hidden;
+    border-top: 0px;
+    vertical-align: center;
+  }
+
   .mail-alertbox {
     position: absolute;
     left: 70px;
@@ -734,6 +742,9 @@ td .from {
     padding-left: 0px;
   }
 
+  .mail-controls-settings {
+    display: none;
+  }
   .mail-controls-btn {
     padding-top: 12px;
   }
