@@ -1,0 +1,9 @@
+version: '0'
+
+services:
+  web:
+    build: .
+    ports:
+     - "80:12101"
+    volumes:
+     - ./data:/data
