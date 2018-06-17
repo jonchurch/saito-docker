@@ -11,7 +11,10 @@ RUN ./configure && make && make install
 WORKDIR /saito
 
 RUN npm install
-RUN node ./lib/start.js
+RUN cd ./lib && ./compile
+
+CMD node ./lib/start.js
+# ENTRYPOINT /bin/sh
 
 EXPOSE 12101
 
